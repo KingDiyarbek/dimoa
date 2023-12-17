@@ -1,7 +1,7 @@
 @import 'profile.css';
 .update {
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
     margin-left: 500px;
     padding-top: 100px;
 }
@@ -14,6 +14,11 @@
     max-width: 600px;
     padding: 10px;
     border-radius: 5px;
+}
+
+.update_content button {
+    width: 100%;
+    max-width: 600px;
 }
 
 .update_content textarea {

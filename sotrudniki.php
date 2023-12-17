@@ -37,8 +37,8 @@ if (!isset($_SESSION['admin'])) {
                 {
                     ?>
                         <ul>
-                            <button class="modal__close">&#10006;</button>  
-                            <li><button class="modal__close">&#10006;</button><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                            <button class="modal__close">&#8211;</button>  
+                            <li><a href="tovar_admin.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
                             
                         </ul>
                     <?php
@@ -55,7 +55,7 @@ if (!isset($_SESSION['admin'])) {
                     {
                         ?>
                             <div class="card-container">
-                                <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
+                                <img class="round" src="<?= $sotrudnik['Image']?>" alt="user">
                                 <h2><?= $sotrudnik['Surname'] ?> <?= $sotrudnik['Name'] ?> <?= $sotrudnik['Patronymic'] ?></h2>
                                 <h3><?= $sotrudnik['Post']?></h3>
                                 <div class="login">
@@ -63,8 +63,8 @@ if (!isset($_SESSION['admin'])) {
                                     <h4>Пароль:<?= $sotrudnik['password']?></h4>
                                 </div>
                                 <div class="skills">
-                                        <a class="primary" href="">Удалить</a>
-                                        <a class="primary ghost" href="">Изменить</a>
+                                        <a class="primary" href="config/delete_user.php?idUser=<?= $sotrudnik['idUser']?>">Удалить</a>
+                                        <a class="primary ghost" href="../update_sotrudnik.php?idUser=<?= $sotrudnik['idUser'] ?>">Изменить</a>
                                 </div>
                             </div>
                         
@@ -91,19 +91,21 @@ if (!isset($_SESSION['admin'])) {
     <div class="container_create_user">
         <h1>Добавление сотрудника</h1>
         <div class="content_create_user"> 
-            <form action="config/create_aksi.php" method="post"  enctype="multipart/form-data">
+            <form action="config/create_user.php" method="post"  enctype="multipart/form-data">
                 <label for="Surname">Фамилия</label>
-                <input type="text" name="Name">
+                <input type="text" name="Surname">
                 <label for="Name">Имя</label>
-                <input type="text" name="Date">
+                <input type="text" name="Name">
                 <label for="Patronymic">Очество</label>
                 <input type="text" name="Patronymic">
+                <label for="Post">Должность</label>
+                <input type="text" name="Post">
                 <label for="Image">Фотография</label>
                 <input type="file" name="file">
                 <label for="login">Логин</label>
                 <input type="text" name="login">
                 <label for="password">Пароль</label>
-                <input type="text">
+                <input type="text" name="password">
                 <button type="submit">Добавить</button>
             </form>
             <button class="modal__close">&#10006;</button>
@@ -111,5 +113,6 @@ if (!isset($_SESSION['admin'])) {
         </div>
 </div>
 <script src="js/sotrudniki.js"></script>
+
 </body>
 </html>

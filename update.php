@@ -34,6 +34,7 @@ $tovar = mysqli_fetch_assoc($tovar);
                 {
                     ?>
                         <ul>
+                            <button class="modal__close">&#8211;</button>  
                             <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
                         </ul>  
                     <?php

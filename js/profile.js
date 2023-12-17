@@ -52,7 +52,4 @@ const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
     btnOpen: '.aksi_create',
     btnClose: '.modal__close',
   });
-  
-
-
 

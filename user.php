@@ -14,7 +14,7 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/user.css">
     <title>Document</title>
 </head>
 <body>
@@ -37,14 +37,14 @@ if (!isset($_SESSION['admin'])) {
                 {
                     ?>
                         <ul>
-                            <button class="modal__close">&#10006;</button>  
-                            <li><button class="modal__close">&#10006;</button><a href="tovar_admin.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                            <li><a href="tovar_admin.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
                             
                         </ul>
                     <?php
                 }
             ?>
         <button class="sidebar_create">+</button>
+        <button class="delete_category"><a href="">&#8212;</a></button> 
     </div>
 </div>
 <div class="tovar">

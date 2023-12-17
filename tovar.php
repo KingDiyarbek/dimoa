@@ -35,6 +35,7 @@ if (!isset($_SESSION['user'])) {
                 {
                     ?>
                         <ul>
+                            <button class="modal__close">&#8211;</button>  
                             <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
                         </ul>  
                     <?php

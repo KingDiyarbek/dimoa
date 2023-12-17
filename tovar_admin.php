@@ -36,7 +36,8 @@ if (!isset($_SESSION['admin'])) {
                 {
                     ?>
                         <ul>
-                            <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                            <button class="modal__close">&#8211;</button>  
+                            <li><a href="tovar_admin.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
                         </ul>  
                     <?php
                 }
@@ -62,7 +63,7 @@ if (!isset($_SESSION['admin'])) {
                             <form class="button-wrapper">
                                 <a href="config/delete_tovar.php?id=<?= $tovar['idMenu'] ?>"><img class="delete" src="image/profile/delete.png" alt=""></a>
                                 <input type="hidden" name="id" value="<?= $tovar['idMenu'] ?>">
-                                <button type="submit"><a href="update.php?id=<?= $tovar['idMenu'] ?>">Изменить</a></button>
+                                <button type="submit"><a href="user_update_tovar.php?id=<?= $tovar['idMenu'] ?>">Изменить</a></button>
                             </form>
                         </div>
                     </div>
