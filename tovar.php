@@ -35,13 +35,11 @@ if (!isset($_SESSION['user'])) {
                 {
                     ?>
                         <ul>
-                            <button class="modal__close">&#8211;</button>  
-                            <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                            <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name_category']; ?></a></li>
                         </ul>  
                     <?php
                 }
             ?>
-        <button class="sidebar_create">+</button>
     </div>
 </div>
 <div class="tovar">
@@ -73,16 +71,6 @@ if (!isset($_SESSION['user'])) {
         </div>
     </div>
     
-</div>
-<div class="create">
-    <div class="container_create">
-        <h1>Добавление категории</h1>
-        <form action="config/create_category.php" method="post" enctype="multipart/form-data">
-            <input type="text" name="Name" placeholder="Названия">
-            <button type="submit">Добавить</button>
-        </form>
-        <button class="modal__close">&#10006;</button>
-    </div>
 </div>
 
 <div class="create_tovar">

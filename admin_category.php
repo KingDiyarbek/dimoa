@@ -3,6 +3,9 @@ session_start();
 require_once 'config/connect.php';
 $result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
 $result_category = mysqli_query($connect, query:'SELECT * FROM `category`');
+if (!isset($_SESSION['admin'])) {
+    header('Location: admin.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +36,7 @@ $result_category = mysqli_query($connect, query:'SELECT * FROM `category`');
                     ?>
                         <ul>
                             <button class="modal__close">&#8211;</button>  
-                            <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                            <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name_category']; ?></a></li>
                         </ul>  
                     <?php
                 }
@@ -48,19 +51,21 @@ $result_category = mysqli_query($connect, query:'SELECT * FROM `category`');
                 {
                     ?>
                     <div class="category">
-                        <h3><?= $category['Name'] ?></h3>
+                        <h3><?= $category['Name_category'] ?></h3>
+                        <a href="admin_update_category.php?id=<?= $category['idCategory'] ?>">Изменить</a>
+                        <a href="config/delete_category.php?id=<?= $category['idCategory'] ?>">Удалить</a>
                     </div>
-                    <a href="admin_update_category.php?id=<?= $category['idCategory'] ?>">Изменить</a>
-                        <a href="">Удалить</a>
+                
                     <?php
                 }
             ?>
     </div>
+    <button class="create_category">Добавит</button>
 </div>
 <div class="create">
     <div class="container_create">
         <h1>Добавление категории</h1>
-        <form action="create_category.php" method="post">
+        <form action="config/create_category.php" method="post">
             <input type="text" name="Name" placeholder="Названия">
             <button type="submit">Добавить</button>
         </form>

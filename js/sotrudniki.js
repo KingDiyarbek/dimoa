@@ -42,13 +42,9 @@ const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
   };
   
   modalController({
-    modal: '.create',
-    btnOpen: '.sidebar_create',
-    btnClose: '.modal__close',
-  });
-  
-  modalController({
     modal: '.create_user',
     btnOpen: '.user_create',
     btnClose: '.modal__close',
   });
+
+  

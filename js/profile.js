@@ -43,7 +43,7 @@ const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
 
   modalController({
     modal: '.create',
-    btnOpen: '.sidebar_create',
+    btnOpen: '.create_category',
     btnClose: '.modal__close',
   });
 

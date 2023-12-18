@@ -1,6 +1,6 @@
 <?php
 require_once 'config/connect.php';
-$result_pizza = mysqli_query($connect, query:'SELECT * FROM `menu`');
+$result_pizza = mysqli_query($connect, query:"SELECT idMenu,Name,Price,Description,Image,Name_category FROM `menu` INNER JOIN `category` ON category_idCategory = idCategory");
 $result_filter = mysqli_query($connect, query:'SELECT * FROM `category`');
 $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 ?>
@@ -36,7 +36,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
                             while ($nav = mysqli_fetch_assoc($result_nav))
                             {
                                 ?>
-                                <li><a href="#"><?= $nav['Name']; ?></a></li>
+                                <li><a href="#"><?= $nav['Name_category']; ?></a></li>
                                 <?php
                             }
                         ?>
@@ -213,7 +213,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
             while ($filter = mysqli_fetch_assoc($result_filter))
             {
                 ?>
-                <a class="filter_text" href="menu.php?id=<?= $filter['idCategory'] ?>#tovar"> <?= $filter['Name']; ?></a>  
+                <a class="filter_text" href="menu.php?id=<?= $filter['idCategory'] ?>#tovar"> <?= $filter['Name_category']; ?></a>  
                 <?php
             }
         ?>
@@ -230,6 +230,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 </section>
 
 <div class="menu">
+    
 <?php
         while ($menu = mysqli_fetch_assoc($result_pizza))
         {

@@ -129,24 +129,6 @@ html {
   font-weight: 700;
 }
 
-.sidebar_create {
-  padding: 10px;
-  width: 100%;
-  background: #042331;  
-  box-sizing: border-box;
-  border-top: 2px solid rgb(255, 255, 255,.1);
-  border-bottom: 1px solid black;
-  border-left: none;
-  transition: .4s;
-  cursor: pointer;
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-}
-.sidebar_create:hover {
-  padding-left: 60px;
-}
-
 .sidebar_create a {
   color: white;
   text-decoration: none;
@@ -154,40 +136,6 @@ html {
   font-weight: 700;
 }
 
-
-.create {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  padding: 100px 250px;
-  overflow-y: auto;
-  display: none;
-  z-index: 10;
-}
-
-.container_create {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  background-color: #fff;
-  margin: auto;
-  color: #000;
-  border-radius: 16px;
-  margin-left: 200px;
-  padding: 30px 15px 10px;
-  cursor: default;
-}
-.container_create input {
-  padding: 10px;
-  border-radius: 20px;
-}
-
-.container_create button {
-  margin-left: 10px;
-  max-width:150px;
-  
-}
 
 .aksi_priwiew {
   margin-top: 10px;

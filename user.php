@@ -37,14 +37,12 @@ if (!isset($_SESSION['admin'])) {
                 {
                     ?>
                         <ul>
-                            <li><a href="tovar_admin.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                            <li><a href="tovar_admin.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name_category']; ?></a></li>
                             
                         </ul>
                     <?php
                 }
             ?>
-        <button class="sidebar_create">+</button>
-        <button class="delete_category"><a href="">&#8212;</a></button> 
     </div>
 </div>
 <div class="tovar">
@@ -86,17 +84,6 @@ if (!isset($_SESSION['admin'])) {
     </div>
     
 </div>
-<div class="create">
-    <div class="container_create">
-        <h1>Добавление категории</h1>
-        <form action="config/create_category.php" method="post">
-            <input type="text" name="Name" placeholder="Названия">
-            <button type="submit">Добавить</button>
-        </form>
-        <button class="modal__close">&#10006;</button>
-    </div>
-</div>
-
 <div class="create_aksi">
     <div class="container_create_aksi">
         <h1>Добавление акции</h1>
