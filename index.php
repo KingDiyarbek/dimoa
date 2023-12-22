@@ -1,7 +1,15 @@
 <?php
 require_once 'config/connect.php';
 $listCategory = mysqli_query($connect, query:'SELECT * FROM `category`');
-$result_pizza = mysqli_query($connect, query:"SELECT menu.*, category.Name_category FROM menu INNER JOIN `category` ON menu.Category_idCategory = category.idCategory WHERE category.Name_category = '$listCategory'");
+$categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
+$menuItems = mysqli_query($connect, "SELECT menu.*, category.Name_category FROM menu INNER JOIN category ON menu.Category_idCategory = category.idCategory");
+$menuItems = mysqli_fetch_all($menuItems, MYSQLI_ASSOC);
+$menuByCategory = [];
+foreach ($menuItems as $menuItem) {
+    $categoryName = $menuItem['Name_category'];
+    $menuByCategory[$categoryName][] = $menuItem;
+}
+
 $result_filter = mysqli_query($connect, query:'SELECT * FROM `category`');
 $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 ?>
@@ -221,50 +229,30 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
         </div>
     </div>
 </div>
-
-<section class="section" id="pizza">
-    <div class="container">
-        <div class="section_header">
-            <h3 class="section_title">Пицца</h3>
-        </div>
-    </div>
-</section>
-
 <div class="menu">
-    
-<?php
-        while ($menu = mysqli_fetch_assoc($result_pizza))
-        {
-            ?>
+<?php foreach ($categories as $category): ?>
+    <h2 class="Name_category"><?= $category['Name_category'] ?></h2>
+    <?php foreach ($menuByCategory[$category['Name_category']] as $menuItem): ?>
+        <div class="tovar">
             <div class="menu_card">
                 <div class="container_1">
                     <div class="wrapper">
                         <div class="banner-image"><img src="image/menu/pizza/po-domashnemu.jpg" alt=""></div>
-                        <h3><?= $menu['Name']; ?></h3>
-                        <p><?= $menu['Description']; ?></p>
+                        <h3><?= $menuItem['Name'] ?></h3>
+                        <p><?= $menuItem['Price'] ?></p>
                     </div>
 
                     <form class="button-wrapper" action="" method="post">
-                        <input type="hidden" value="<?= $menu['Price'] ?>"><h1 class="btn outline"><?= $menu['Price'] ?></h1>
-                        <input type="hidden" name="id" value="<?= $menu['idMenu'] ?>">
+                        <input type="hidden" value="<?= $menuItem['Price'] ?>"><h1 class="btn outline"><?= $menuItem['Price'] ?></h1>
+                        <input type="hidden" name="id" value="<?= $menuItem['idMenu'] ?>">
                         <button type="submit">Выбрать</button>
                     </form>
                 </div>
             </div>
-            <?php
-        }
-    ?>
-</div>
-
-<section class="section" id="burger">
-    <div class="container">
-        <div class="section_header">
-            <h3 class="section_title">Бургер</h3>
         </div>
-    </div>
-</section>
-
-
+    <?php endforeach; ?>
+<?php endforeach; ?>
+</div>
 
 <div class="komentariya">
     <div class="komentariya_content">
@@ -276,9 +264,10 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
             <h2 class="modal_title">Комментария</h2>
             <h3 class="modal_text">Здравствуйте. Напишите пожалуйства причину обращения и мы с вами обязательно свяжемся</h3>
             <div class="content">
-                <form>      
+                <form action="mail.php" method="post" enctype="multipart/form-data">      
                     <input name="name" type="text" class="feedback-input" placeholder="Имя" />   
                     <input name="email" type="text" class="feedback-input" placeholder="Email или телефон номер" />
+                    <input type="file" name="file">
                     <textarea name="text" class="feedback-input" placeholder="Комментария"></textarea>
                     <input type="submit" value="Отправить"/>
                 </form>

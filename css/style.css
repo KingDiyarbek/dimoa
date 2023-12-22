@@ -350,13 +350,32 @@ nav ul li:hover ul {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 6px;
-    grid-row-gap: 15px; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
+.Name_category {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  margin: 0 auto;  
+  text-align: center;
+  font-size: 24px;
+  color: #97159A;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+.Name_category:after {
+  content: "";
+  display: block; 
+  width: 150px;
+  height: 3px;
+  margin: 5px auto 0;
+  background: aquamarine;
+}
 
 .menu_card {
     margin-bottom: 25px;
