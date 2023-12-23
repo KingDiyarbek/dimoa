@@ -9,7 +9,6 @@ foreach ($menuItems as $menuItem) {
     $categoryName = $menuItem['Name_category'];
     $menuByCategory[$categoryName][] = $menuItem;
 }
-
 $result_filter = mysqli_query($connect, query:'SELECT * FROM `category`');
 $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 ?>
@@ -218,14 +217,10 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 <div class="filter">
     <div class="container">
             <div class="filter_content">
-            <?php
-            while ($filter = mysqli_fetch_assoc($result_filter))
-            {
-                ?>
-                <a class="filter_text" href="menu.php?id=<?= $filter['idCategory'] ?>#tovar"> <?= $filter['Name_category']; ?></a>  
-                <?php
-            }
-        ?>
+            <?php foreach ($categories as $category): ?>
+                <a class="filter_text" href="menu.php?id=<?= $filter['idCategory'] ?>#tovar"><?= $category['Name_category'] ?> </a>  
+            <?php endforeach; ?>
+
         </div>
     </div>
 </div>
@@ -264,11 +259,11 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
             <h2 class="modal_title">Комментария</h2>
             <h3 class="modal_text">Здравствуйте. Напишите пожалуйства причину обращения и мы с вами обязательно свяжемся</h3>
             <div class="content">
-                <form action="mail.php" method="post" enctype="multipart/form-data">      
-                    <input name="name" type="text" class="feedback-input" placeholder="Имя" />   
-                    <input name="email" type="text" class="feedback-input" placeholder="Email или телефон номер" />
-                    <input type="file" name="file">
-                    <textarea name="text" class="feedback-input" placeholder="Комментария"></textarea>
+                <form action="config/koment.php" method="post" enctype="multipart/form-data">      
+                    <input type="text" name="name" class="feedback-input" placeholder="Имя" />   
+                    <input type="text" name="email" class="feedback-input"  placeholder="Email или телефон номер" />
+                    <textarea name="komentariya" class="feedback-input"  placeholder="Комментария"></textarea>
+                    <input type="file" name="file" class="feedback-input">
                     <input type="submit" value="Отправить"/>
                 </form>
             </div>

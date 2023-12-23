@@ -1,13 +1,12 @@
 <?php
-$uploaddir = 'image/menu';
+$uploaddir = '../image/';
 $file = $uploaddir.$_FILES['file']['name'];
 session_start();
 require_once 'connect.php';
-$Name = $_POST['Name'];
-$Price = $_POST['Price'];
-$Description = $_POST['Description'];
-$id_category = $_POST['id_category'];
-mysqli_query($connect, query:"INSERT INTO `menu` (`Name`, `Price`, `Description`, `Image`, `Category_idCategory`) VALUES ('$Name', '$Price', '$Description', '$file', '$id_category')");
+$Name = $_POST['name'];
+$email = $_POST['email'];
+$komentariya = $_POST['komentariya'];
+mysqli_query($connect, query:"INSERT INTO `komentariya` (`Name`, `email`, `komentariya`,`File`) VALUES ('$Name', '$email', '$komentariya', '$file')");
 if (!empty($_POST)) {
     if ($_FILES['file'] ['name'] !=''){
         $uploadfile = $uploaddir . $_FILES['file']['name'];
