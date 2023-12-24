@@ -218,7 +218,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
     <div class="container">
             <div class="filter_content">
             <?php foreach ($categories as $category): ?>
-                <a class="filter_text" href="menu.php?id=<?= $filter['idCategory'] ?>#tovar"><?= $category['Name_category'] ?> </a>  
+                <a class="filter_text" href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?> </a>  
             <?php endforeach; ?>
 
         </div>
@@ -226,7 +226,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 </div>
 <div class="menu">
 <?php foreach ($categories as $category): ?>
-    <h2 class="Name_category"><?= $category['Name_category'] ?></h2>
+    <h2 class="Name_category" id="<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></h2>
     <?php foreach ($menuByCategory[$category['Name_category']] as $menuItem): ?>
         <div class="tovar">
             <div class="menu_card">
