@@ -40,14 +40,9 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="#menu">Меню</a>
                         <ul>
-                        <?php
-                            while ($nav = mysqli_fetch_assoc($result_nav))
-                            {
-                                ?>
-                                <li><a href="#"><?= $nav['Name_category']; ?></a></li>
-                                <?php
-                            }
-                        ?>
+                        <?php foreach ($categories as $category): ?>
+                            <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                        <?php endforeach; ?>
                         </ul>
                     </li>
                     <li><a href="aksii.html">Акции</a></li>
