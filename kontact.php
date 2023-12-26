@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://lk.easynetshop.ru/frontend/v5/ens-5de72bb6.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/kontact.css">
+    <link rel="stylesheet" href="css/o_nas.css">
     <title>Document</title>
 </head>
 <body>
