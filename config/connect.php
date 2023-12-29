@@ -1,13 +1,14 @@
 <?php
 
-$hostName = '127.0.0.1';
-$username = 'root';
-$password = '';
-$database = 'dimoa';
-
-$connect = mysqli_connect($hostName,$username,$password,$database);
-
-if ($connect == false)
+class connect
 {
-    echo "Ошибка подключения";
+    public $hostName = '127.0.0.1';
+    public $username = 'root';
+    public $password = '';
+    public $database = 'dimoa';
+
+    public function ConnectToDB()
+    {
+        return $connect = mysqli_connect($this->hostName,$this->username, $this->password,$this->database);
+    }
 }

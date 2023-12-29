@@ -1,6 +1,12 @@
 <?php
 require_once 'config/connect.php';
-$result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
+require_once 'Model/Aksi.php';
+
+use dimoa\Model\Aksi;
+
+$result_aksii = new Aksi();
+
+$result_aksii->getAksiAll();
 ?>
 
 <!DOCTYPE html>
