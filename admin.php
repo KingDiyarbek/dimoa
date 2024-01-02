@@ -2,10 +2,10 @@
     session_start();
     require_once 'config/connect.php';
     if (isset($_SESSION['user'])) {
-        header('Location: profile.php');
+        header('Location: user/profile.php');
     }
     if (isset($_SESSION['admin'])) {
-        header('Location: user.php');
+        header('Location: admin/profile.php');
     }
 ?>
 <!DOCTYPE html>

@@ -29,7 +29,7 @@ if (mysqli_num_rows($chek_admin) > 0) {
         "Surname" => $admin['Surname'],
         "Patronymic" => $admin['Patronymic']
     ];
-    header('Location:../user.php');
+    header('Location:../admin/profile.php');
 } else {
     $_SESSION['message'] = 'Неверный логин или пароль';
     header('Location:../admin.php');

@@ -22,20 +22,20 @@ $aksiya_info = mysqli_fetch_assoc($aksiya_info);
 
                 <nav>
                     <ul>
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="#menu">Меню</a>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/#menu">Меню</a>
                             <ul>
                                 <?php foreach ($categories as $category) : ?>
-                                    <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                                    <li><a href="/#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-                        <li><a href="aksii.html">Акции</a></li>
-                        <li><a href="">Контакты</a></li>
-                        <li><a href="o_nas.html">Ещё</a>
+                        <li><a href="aksii.php">Акции</a></li>
+                        <li><a href="kontact.php">Контакты</a></li>
+                        <li><a href="#">Ещё</a>
                             <ul>
-                                <li><a href="o_nas.html">О нас</a></li>
-                                <li><a href="sostav.html">Состав и калорийность</a></li>
+                                <li><a href="o_nas.php">О нас</a></li>
+                                <li><a href="sostav.php">Состав и калорийность</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -52,7 +52,7 @@ $aksiya_info = mysqli_fetch_assoc($aksiya_info);
     </header>
 
 <div class="back_button">
-    <a href="../aksii.html" class="back">Назад</a>
+    <a href="aksii.php" class="back">Назад</a>
 </div>
 
 <div class="content">

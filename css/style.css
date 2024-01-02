@@ -56,11 +56,18 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 90px;
     font-weight: 700;
     color: rgb(91, 233, 8);
-    background: linear-gradient(95deg,#2022d7,#f9fea5);
+    background: linear-gradient(to right,#00dbde,#fc00ff);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     line-height: 1;
+    animation: gradient 3s linear infinite;
+}
+@keyframes gradient {
+  0% {background-position: 0% 75%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 70%;}
 }
 
 .intro_title::after {
@@ -139,27 +146,29 @@ nav ul  li a:hover {
   color: rgb(206, 44, 44);
 }
 nav ul li ul {
-  background: #000000;
-  columns: 2;
-  position: absolute;
-  float: left;
-  width:  300px;
-  border: 3px solid rgb(27, 170, 139);
-  border-left: none;
+  width: 300px;
   display: none;
+  background: rgb(13,28,67,0.95);
+  border-right: 3px solid #7CD10B;
+  border-top: 3px solid #7CD10B;
+  border-bottom: 3px solid #7CD10B;
+  gap: 10px;
 }
 nav ul li ul li {
-  width: 100%;
   margin-left: -40px;
-
+  border-left: 3px solid #7CD10B;
 }
 nav ul li ul li a {
   list-style: none;
-  border-left: 3px solid rgb(27, 170, 139);
 }
 
 nav ul li:hover ul {
-  display: initial;
+  position: absolute;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2;
+  grid-row-gap: 0px;
 }
 /*dropdown*/
 
@@ -383,12 +392,8 @@ nav ul li:hover ul {
     cursor: pointer;
 }
 
-
-
-
 .container_1 {
-    width: 100%;
-    max-width: 230px;
+    width: 230px;
     height: 450px;
     background-color: #f2f8f9;
     border-radius: 12px;
@@ -716,13 +721,13 @@ textarea {
 
 .dostavka_content img {
   width: 100%;
-  margin-bottom: 17px;
 }
 
 .dost {
+  display: grid;
   width: 100%;
   margin-left: 5px;
-  background: #f6f6f6;
+  background: #d3d3d3;
 }
 .dost h2 {
   font-size: 36px;
@@ -734,7 +739,6 @@ textarea {
 }
 .dost img {
   width: 100%;
-  margin-bottom: 10px;
 }
 
 /*komentariya*/

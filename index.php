@@ -35,11 +35,11 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
     <header class="header" id="header">
         <div class="container">
             <div class="header_inner">
-                <div class="logo"><a href="index.html">DiMoa</a></div>
+                <div class="logo"><a href="/">DiMoa</a></div>
 
                 <nav>
                     <ul>
-                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="/">Главная</a></li>
                         <li><a href="#menu">Меню</a>
                             <ul>
                                 <?php foreach ($categories as $category) : ?>
@@ -47,12 +47,12 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-                        <li><a href="aksii.html">Акции</a></li>
-                        <li><a href="">Контакты</a></li>
-                        <li><a href="o_nas.html">Ещё</a>
+                        <li><a href="aksii.php">Акции</a></li>
+                        <li><a href="kontact.php">Контакты</a></li>
+                        <li><a href="">Ещё</a>
                             <ul>
-                                <li><a href="o_nas.html">О нас</a></li>
-                                <li><a href="sostav.html">Состав и калорийность</a></li>
+                                <li><a href="o_nas.php">О нас</a></li>
+                                <li><a href="sostav.php">Состав и калорийность</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -230,7 +230,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         <div class="menu_card">
                             <div class="container_1">
                                 <div class="wrapper">
-                                    <div class="banner-image"><img src="image/menu/pizza/po-domashnemu.jpg" alt=""></div>
+                                    <div class="banner-image"><img src="<?= $menuItem['Image'] ?>" alt=""></div>
                                     <h3><?= $menuItem['Name'] ?></h3>
                                     <p><?= $menuItem['Price'] ?></p>
                                 </div>
@@ -266,6 +266,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         <textarea name="komentariya" class="feedback-input" placeholder="Комментария"></textarea>
                         <input type="file" name="file" class="feedback-input">
                         <input type="submit" value="Отправить" />
+                        
                     </form>
                 </div>
                 <button class="modal__close">&#10006;</button>

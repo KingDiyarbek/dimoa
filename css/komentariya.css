@@ -50,7 +50,7 @@
 table {
   width: 100%;
   table-layout: fixed;
-}
+  }
 .tbl-header {
   background-color: rgba(129, 0, 65, 0.3);
 }
@@ -122,13 +122,3 @@ td {
 /* follow me template */
 
 /* for custom scrollbar for webkit browser*/
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgb(255, 0, 0);
-}
-::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(252, 1, 1, 0.3);
-}
