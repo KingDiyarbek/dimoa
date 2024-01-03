@@ -21,8 +21,8 @@
     <div class="brand-logo"></div>
     <div class="brand-title">DIMOA</div>
     <form action="config/admin_config.php" method="post">
-        <input type="text" name="login" placeholder="Логин"/>
-        <input type="password" name="password" placeholder="Введите проль" />
+        <input type="text" name="login" placeholder="Логин">
+        <input type="password" name="password" placeholder="Введите проль" >
         <button type="submit">ВХОД</button>
     </form>
 </div>

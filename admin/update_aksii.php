@@ -27,6 +27,7 @@ $aksiya = mysqli_fetch_assoc($aksiya);
     <h2>DIMOA</h2>
     <div class="sidebar_content">
             <ul>
+                <li><a href="sotrudniki.php">Сотрудники</a></li>
                 <li><a href="profile.php">Акции</a></li>
             </ul>
             <ul>

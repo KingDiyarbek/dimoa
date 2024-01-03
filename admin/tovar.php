@@ -80,11 +80,12 @@ if (!isset($_SESSION['admin'])) {
     <div class="container_create_tovar">
         <h1>Добавление товара</h1>
         <div class="content_create_tovar"> 
-            <form action="config/create_tovar.php" method="post"  enctype="multipart/form-data">
+            <form action="../config/create_tovar.php" method="post"  enctype="multipart/form-data">
+                <input type="hidden" name="id_category" value="<?= $id_tovar ?>">
                 <input type="text" name="Name" placeholder="Названия">
                 <input type="text" name="Price" placeholder="Цена">
                 <textarea  name="Description" placeholder="Названия"></textarea>
-                <input type="hidden" name="id_category" value="<?= $id_tovar ?>"> 
+                
                 <input type="file" name="file">
                 <button type="submit">Добавить</button>
             </form>
@@ -92,6 +93,6 @@ if (!isset($_SESSION['admin'])) {
         </div>
         </div>
 </div>
-<script src="js/tovar.js"></script>
+<script src="../js/tovar.js"></script>
 </body>
 </html>

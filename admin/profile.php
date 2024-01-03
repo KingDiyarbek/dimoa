@@ -29,6 +29,7 @@ if (!isset($_SESSION['admin'])) {
     <h2>DIMOA</h2>
     <div class="sidebar_content">
             <ul>
+                <li><a href="sotrudniki.php">Сотрудники</a></li>
                 <li><a href="profile.php">Акции</a></li>
             </ul>
             <ul>
@@ -38,7 +39,6 @@ if (!isset($_SESSION['admin'])) {
                     ?>
                         <ul>
                             <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name_category']; ?></a></li>
-
                         </ul>
                     <?php
                     }
@@ -71,7 +71,7 @@ if (!isset($_SESSION['admin'])) {
                                         </div>
                                     </a></div>
                                     <div class="aksi_btn">
-                                        <a href="config/delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="image/profile/delete.png" alt=""></a>
+                                        <a href="config/delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="../image/profile/delete.png" alt=""></a>
                                         <a class="setup_tovar" href="update_aksii.php?id=<?= $aksi['idAksi'] ?>">Изменить</a>
                                     </div>
                                     

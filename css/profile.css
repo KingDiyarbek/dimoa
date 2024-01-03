@@ -114,15 +114,18 @@ html {
 
 
 .tovar {
-  margin-left: 220px;
+  margin-left: 205px;
   padding-top: 100px;
 }
 
 .container_tovar {
   width: 100%;
   max-width: 1200px;
-  display: flex;
-  flex-direction: column;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .button-wrapper .btn_delete {
@@ -300,6 +303,7 @@ html {
   padding: 10px;
   border-radius: 20px;
   margin-top: 10px;
+  border: 2px solid rgba(255, 0, 0, 0.5);
 }
 
 .content_create_tovar form textarea {

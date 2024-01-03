@@ -82,7 +82,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
     <section class="section">
         <div class="container">
             <div class="section_header">
-                <h2 class="section_septitle">Наши Акции</h2>
+                <h2 class="section_title">Наши Акции</h2>
             </div>
         </div>
     </section>
@@ -102,72 +102,104 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
     <section class="section">
         <div class="container">
             <div class="section_header">
-                <h2 class="section_septitle">Почему выбирают</h2>
+                <h2 class="section_subtitle">Почему выбирают</h2>
                 <h3 class="section_title">наше кафе</h3>
             </div>
         </div>
     </section>
 
-    <div class="motive">
+    <div class="wrapper">
         <div class="container">
-            <div class="motive_content">
-                <div class="motive_items">
-                    <div class="motive_img_pizza">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
+            <div class="cols">
+                <div class="col">
+                    <div class="content_wrapper">
+                        <div class="front" style="background-image: url(image/motive/pizza.jpeg)">
+                            <div class="inner">
+                                <p>Уютная атмосфера</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <p> Dimoa предлагает уютное и стильное оформление интерьера, созданное с учетом последних тенденций в дизайне. Клиенты смогут насладиться комфортной обстановкой и расслабиться в приятной атмосфере.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="content_wrapper">
+                        <div class="front" style="background-image: url(image/motive/burger.jpg)">
+                            <div class="inner">
+                                <p>Качество продуктов</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <p>Dimoa гордится своим высоким качеством продуктов. Используя только свежие и натуральные ингредиенты, кафе предлагает своим клиентам блюда высокого кулинарного уровня. Каждое блюдо приготовлено с любовью и вниманием к деталям.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="motive_items">
-                    <div class="motive_img_burger">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="content_wrapper">
+                        <div class="front" style="background-image: url(image/motive/hot_dog.jpg)">
+                            <div class="inner">
+                                <p> Меню разнообразие</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <p>В Dimoa представлено большое разнообразие блюд и напитков. Независимо от предпочтений клиента, в кафе найдется что-то для каждого. От классических блюд до инновационных экспериментов, Dimoa предлагает широкий выбор для всех гурманов.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="motive_items">
-                    <div class="motive_img_hot-dog">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="content_wrapper">
+                        <div class="front" style="background-image: url(image/motive/salat.jpg)">
+                            <div class="inner">
+                                <p>Превосходное обслуживание</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <p>Команда сотрудников Dimoa обеспечивает высококлассное обслуживание, где каждый клиент чувствует себя особенным и важным. Персонал кафе дружелюбный, внимательный и готовый помочь с любыми потребностями клиента.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="motive_items">
-                    <div class="motive_img_shaurma">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="content_wrapper">
+                        <div class="front" style="background-image: url(image/motive/shaurma.jpg)">
+                            <div class="inner">
+                                <p>Удобное расположение</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <p>Dimoa расположено в удобном месте, с хорошей транспортной доступностью. Это позволяет клиентам легко добраться до кафе, что является дополнительным преимуществом по сравнению с некоторыми конкурентами, которые могут находиться в неудобных или отдаленных местах.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="motive_items">
-                    <div class="motive_img_salat">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
-                    </div>
-                </div>
-
-                <div class="motive_items">
-                    <div class="motive_img_shushi">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
-                    </div>
-                </div>
-
-                <div class="motive_items">
-                    <div class="motive_img_desert">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
-                    </div>
-                </div>
-
-                <div class="motive_items">
-                    <div class="motive_img_wok">
-                        <h2 class="motive_text">Качество</h2>
-                        <div class="color-overlay"></div>
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <div class="content_wrapper">
+                        <div class="front" style="background-image: url(image/motive/deserti.jpg)">
+                            <div class="inner">
+                                <p>INDIA</p>
+                                <span>MUMBAI</span>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <p>The city is a major centre for finance, commerce, and entertainment in India and is home to the Bombay Stock Exchange.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -232,7 +264,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                                 <div class="wrapper">
                                     <div class="banner-image"><img src="<?= $menuItem['Image'] ?>" alt=""></div>
                                     <h3><?= $menuItem['Name'] ?></h3>
-                                    <p><?= $menuItem['Price'] ?></p>
+                                    <p><?= $menuItem['Description'] ?></p>
                                 </div>
 
                                 <form class="button-wrapper" action="" method="post">
@@ -272,7 +304,6 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                 <button class="modal__close">&#10006;</button>
             </div>
         </div>
-        <button class="modal__close">&#10006;</button>
     </div>
 
     <div class="footer">
