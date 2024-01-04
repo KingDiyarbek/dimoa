@@ -103,12 +103,12 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
         <div class="container">
             <div class="section_header">
                 <h2 class="section_subtitle">Почему выбирают</h2>
-                <h3 class="section_title">наше кафе</h3>
+                <h2 class="section_title">наше кафе</h2>
             </div>
         </div>
     </section>
 
-    <div class="wrapper">
+    <div class="motive">
         <div class="container">
             <div class="cols">
                 <div class="col">
@@ -120,7 +120,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         </div>
                         <div class="back">
                             <div class="inner">
-                                <p> Dimoa предлагает уютное и стильное оформление интерьера, созданное с учетом последних тенденций в дизайне. Клиенты смогут насладиться комфортной обстановкой и расслабиться в приятной атмосфере.</p>
+                                <p> Dimoa предлагает уютное и стильное оформление интерьера, созданное с учетом последних тенденций в дизайне.</p>
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         </div>
                         <div class="back">
                             <div class="inner">
-                                <p>Dimoa гордится своим высоким качеством продуктов. Используя только свежие и натуральные ингредиенты, кафе предлагает своим клиентам блюда высокого кулинарного уровня. Каждое блюдо приготовлено с любовью и вниманием к деталям.</p>
+                                <p>Dimoa гордится своим высоким качеством продуктов. </p>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         </div>
                         <div class="back">
                             <div class="inner">
-                                <p>В Dimoa представлено большое разнообразие блюд и напитков. Независимо от предпочтений клиента, в кафе найдется что-то для каждого. От классических блюд до инновационных экспериментов, Dimoa предлагает широкий выбор для всех гурманов.</p>
+                                <p>В Dimoa представлено большое разнообразие блюд и напитков.</p>
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         </div>
                         <div class="back">
                             <div class="inner">
-                                <p>Команда сотрудников Dimoa обеспечивает высококлассное обслуживание, где каждый клиент чувствует себя особенным и важным. Персонал кафе дружелюбный, внимательный и готовый помочь с любыми потребностями клиента.</p>
+                                <p>Команда сотрудников Dimoa обеспечивает высококлассное обслуживание, где каждый клиент чувствует себя особенным и важным.</p>
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         </div>
                         <div class="back">
                             <div class="inner">
-                                <p>Dimoa расположено в удобном месте, с хорошей транспортной доступностью. Это позволяет клиентам легко добраться до кафе, что является дополнительным преимуществом по сравнению с некоторыми конкурентами, которые могут находиться в неудобных или отдаленных местах.</p>
+                                <p>Dimoa расположено в удобном месте, с хорошей транспортной доступностью. </p>
                             </div>
                         </div>
                     </div>
@@ -336,7 +336,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
 
             <div class="footer_content">
                 <div class="footer_content_menu">
-                    <h3>Меню</h3>
+                    <h2>Меню</h2>
                     <ul>
                         <li><a href="#pizza">Пицца</a></li>
                         <li><a href="">Бургкр</a></li>
@@ -354,10 +354,10 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                 </div>
 
                 <div class="footer_content_aksi">
-                    <h3><a href="">Акции</a></h3>
-                    <h3><a href="">Контакты</a></h3>
-                    <h3><a href="">О нас</a></h3>
-                    <h3><a href="">Состав и калорийность</a></h3>
+                    <h2><a href="">Акции</a></h2>
+                    <h2><a href="">Контакты</a></h2>
+                    <h2><a href="">О нас</a></h2>
+                    <h2><a href="">Состав и калорийность</a></h2>
                 </div>
 
 
@@ -393,6 +393,9 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="footer_end">
+            <h3>&#169; Dimoa 2024</h3>
         </div>
     </div>
     <script src="js/modal.js"></script>
