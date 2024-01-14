@@ -7,6 +7,10 @@
     if (isset($_SESSION['admin'])) {
         header('Location: admin/profile.php');
     }
+
+    if (isset($_SESSION['operator'])) {
+        header('Location: operator/komentariya.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

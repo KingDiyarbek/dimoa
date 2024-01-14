@@ -115,14 +115,16 @@
     font-size: 16px;
 }
 
-.back_button  {
-    margin-top: 100px;
-    text-align: right;
-    width: 100%;
-    max-width: 1200px;
+.name_aksii {
+  display: flex;
+  margin-top: 100px;
 }
 
-.back {
+.back_button  {
+    text-align: right;
+}
+
+.ago {
     width: 200px;
     background-color: rgb(255, 148, 17);
     border: 3px solid red;
@@ -136,7 +138,7 @@
     transition: background .5s linear;
 }
 
-.back:hover {
+.ago:hover {
     border: 2px solid rgb(31, 17, 216);
     background: rgb(6, 252, 79);
     
@@ -145,13 +147,11 @@
 .title {
     width: 100%;
     max-width: 1200px;
-    margin-left: 120px;
 }
 
 .content_img {
     width: 100%;
     max-width: 1200px;
-    padding-left: 120px;
     padding-top: 30px;
 
 }
@@ -159,10 +159,6 @@
 
 #faq {
     width: 100%;
-    max-width: 1200px;
-    padding-left: 120px;
-    text-align: center;
-    margin-bottom: 50px;
 }
 
 section.faq {
@@ -298,13 +294,13 @@ section.faq {
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   .aksi_content {
-    width: 320px;
+    width: 305px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .aksi_content {
-    width: 240px;
+    width: 225px;
   }
   
   .section_aksi_title {
@@ -326,7 +322,7 @@ section.faq {
   }
   
   .aksi_content {
-    width: 270px;
+    width: 255px;
   }
   
   .section_aksi_title {

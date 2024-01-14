@@ -1,9 +1,14 @@
 @import 'profile.css';
 .update {
+    margin-left: 78px;
+}
+
+.update_content {
     width: 100%;
-    max-width: 600px;
-    margin-left: 500px;
-    padding-top: 100px;
+    max-width: 800px;
+    padding-top: 60px;
+    margin: 0 auto;
+    background: rgba(226, 5, 5);
 }
 .update_content form{
     display: grid;
@@ -11,7 +16,6 @@
 .update_content input {
     margin-top: 5px;
     width: 100%;
-    max-width: 600px;
     padding: 10px;
     border-radius: 5px;
 }
@@ -23,7 +27,6 @@
 
 .update_content textarea {
     width: 100%;
-    max-width: 600px;
     margin-top: 5px;
 }
 
@@ -140,5 +143,72 @@ img {
     transform: none;
     background: red;
     }
+
+    .input-file {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);;
+    }
+    .input-file span {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        font-size: 14px;
+        vertical-align: middle;
+        color: rgb(255 255 255);
+        text-align: center;
+        border-radius: 4px;
+        background-color: #419152;
+        line-height: 22px;
+        height: 40px;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        border: none;
+        margin: 0;
+        transition: background-color 0.2s;
+    }
+    .input-file input[type=file] {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        display: block;
+        width: 0;
+        height: 0;
+    }
     
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+        .update {
+            margin-left: 68px;
+        }
+
+        .update_content {
+            max-width: 640px;
+        }
+    }
+    @media screen and (min-width: 768px) and (max-width: 992px){
+        .update {
+            margin-left: 58px;
+        }
+
+        .update_content {
+            max-width: 480px;
+        }
+    }
+    @media screen and (min-width: 576px) and (max-width: 768px){
+        .update {
+            margin-left: 48px;
+        }
+
+        .update_content{
+            max-width: 360px;
+        }
+    }
+    @media screen and (max-width: 576px){
+        .update {
+            margin-left: 38px;
+        }
+    }
     
