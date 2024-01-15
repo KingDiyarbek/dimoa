@@ -335,18 +335,9 @@ foreach ($menuItems as $menuItem) {
                 <div class="footer_content_menu">
                     <h2>Меню</h2>
                     <ul>
-                        <li><a href="#pizza">Пицца</a></li>
-                        <li><a href="">Бургкр</a></li>
-                        <li><a href="">Шаурма</a></li>
-                        <li><a href="">Роллы</a></li>
-                        <li><a href="">Салат</a></li>
-                        <li><a href="">Wok</a></li>
-                        <li><a href="">Закуски</a></li>
-                        <li><a href="">Десерты</a></li>
-                        <li><a href="">Самса</a></li>
-                        <li><a href="">Мясо</a></li>
-                        <li><a href="">Напитки</a></li>
-                        <li><a href="">Соусы</a></li>
+                    <?php foreach ($categories as $category) : ?>
+                        <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                    <?php endforeach; ?>
                     </ul>
                 </div>
 
