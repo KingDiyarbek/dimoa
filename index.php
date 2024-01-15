@@ -9,8 +9,6 @@ foreach ($menuItems as $menuItem) {
     $categoryName = $menuItem['Name_category'];
     $menuByCategory[$categoryName][] = $menuItem;
 }
-$result_filter = mysqli_query($connect, query: 'SELECT * FROM `category`');
-$result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
