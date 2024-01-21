@@ -55,14 +55,18 @@ $aksiya_info = mysqli_fetch_assoc($aksiya_info);
 <div class="content">
     <div class="container">
         <div class="name_aksii">
-            <div class="title"><h1><?= $aksiya_info['Name'] ?></h1></div>
-            <div class="back_button">
+            <div class="title">
+                <h1><?= $aksiya_info['Name'] ?></h1>
                 <a href="aksii.php" class="ago">Назад</a>
             </div>                       
         </div>
+        <div class="image_aksi">
+            <img src=<?= $aksiya_info['Image'] ?> alt="">
+        </div>
     </div>
-   
 </div>
+
+
 
 <div id="faq">
     <div class="container">

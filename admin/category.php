@@ -25,18 +25,18 @@ if (!isset($_SESSION['admin'])) {
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
+                <a href="sotrudniki.php"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Сотрудники</a></li>
+                    <li><a class="link_name" href="sotrudniki.php">Сотрудники</a></li>
                 </ul>
             </li>
             <li>
-                <a href="">
+                <a href="profile.php">
                 <i class='bx bxs-offer'></i>
                     <span class="link_name">Акции</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="">Акции</a></li>
+                    <li><a class="link_name" href="profile.php">Акции</a></li>
                 </ul>
             </li>
             <li>
@@ -87,22 +87,24 @@ if (!isset($_SESSION['admin'])) {
         </div>
     </section>
 <div class="update">
-    <div class="update_content">
-    <?php
-                while ($category = mysqli_fetch_assoc($result_category))
-                {
-                    ?>
-                    <div class="category">
-                        <h3><?= $category['Name_category'] ?></h3>
-                        <a href="update_category.php?id=<?= $category['idCategory'] ?>">Изменить</a>
-                        <a href="../config/delete_category.php?id=<?= $category['idCategory'] ?>">Удалить</a>
-                    </div>
-                
-                    <?php
-                }
-            ?>
+    <div class="container_tovar">
+        <div class="update_category">
+        <?php
+                    while ($category = mysqli_fetch_assoc($result_category))
+                    {
+                        ?>
+                        <div class="category">
+                            <h3><?= $category['Name_category'] ?></h3>
+                            <a href="update_category.php?id=<?= $category['idCategory'] ?>">Изменить</a>
+                            <a href="../config/delete_category.php?id=<?= $category['idCategory'] ?>">Удалить</a>
+                        </div>
+                    
+                        <?php
+                    }
+                ?>
+        </div>
+        <button class="create_category">Добавит</button>
     </div>
-    <button class="create_category">Добавит</button>
 </div>
 <div class="create">
     <div class="container_create">

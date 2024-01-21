@@ -27,15 +27,24 @@ if (!isset($_SESSION['admin'])) {
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
+                <a href="sotrudniki.php"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Сотрудники</a></li>
+                    <li><a class="link_name" href="sotrudniki.php">Сотрудники</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="profile.php">
+                <i class='bx bxs-offer'></i>
+                    <span class="link_name">Акции</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="profile.php">Акции</a></li>
                 </ul>
             </li>
             <li>
                 <div class="iocn-link">
                     <a href="#">
-                        <i class="bx bx-collection"></i>
+                        <i class='bx bxs-pizza'></i>
                         <span class="link_name">Товары</span>
                     </a>
                     <i class="bx bxs-chevron-down arrow"></i>
@@ -52,12 +61,12 @@ if (!isset($_SESSION['admin'])) {
                 </ul>
             </li>
             <li>
-                <a href="">
-                <i class='bx bxs-offer'></i>
-                    <span class="link_name">Акции</span>
+                <a href="category.php">
+                    <i class='bx bxs-category'></i>
+                    <span class="link_name">Категории</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="">Акции</a></li>
+                    <li><a class="link_name" href="category.php">Категории</a></li>
                 </ul>
             </li>
             <li>
@@ -84,17 +93,14 @@ if (!isset($_SESSION['admin'])) {
         <form action="../config/update_tovar.php" method="post"  enctype="multipart/form-data">
             <input type="hidden" name="id_tovar" value="<?= $tovar['idMenu']?>">
             <input type="hidden" name="id_category" value="<?= $tovar['Category_idCategory']?>">
-            <label for="Name">Название</label>
+            <label>Название</label>
             <input type="text" name="Name" value="<?= $tovar['Name']?>">
-            <label for="Price" >Цена</label>
+            <label>Цена</label>
             <input type="text" name="Price" value="<?= $tovar['Price']?>">
-            <label for="Description">Описание</label>
+            <label>Описание</label>
             <textarea name="Description"><?= $tovar['Description']?></textarea>
-            <label class="input-file">
-                <span>Выберите файл</span>
             <input type="file" name="file"><img src="<?= $tovar['Image']?>" alt="">
-            </label>
-            <button>Изменить</button>
+            <button class="button_update"><span>Изменить</span></button>
         </form>
     </div>
 
@@ -103,3 +109,4 @@ if (!isset($_SESSION['admin'])) {
 <script src="js/profile.js"></script>
 </body>
 </html>
+

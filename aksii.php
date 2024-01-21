@@ -26,10 +26,10 @@ $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
 					<nav class="header-menu">
 						<ul class="header-menu__list">
                             <li><a href="/" class="header-menu__link">Главная</a></li>
-                            <li><a href="#menu" class="header-menu__link">Меню</a>
+                            <li><a href="index.php#menu" class="header-menu__link">Меню</a>
                                 <ul>
                                 <?php foreach ($categories as $category) : ?>
-                                    <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                                    <li><a href="index.php#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
                                 <?php endforeach; ?>
                                 </ul>
                             </li>
@@ -68,10 +68,10 @@ $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
                     <form action="aksiya_info.php">
                         <a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>">
                             <div class="aksi_content">
-                                <div class="img_card"><img  src="image/aksii/1.jpg" alt="">
+                                <div class="img_card"><img  src="<?= $aksi['Image'] ?>" alt="">
                                     <a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>" class="button_red">Подробнее</a>
                                 </div>
-                                <div class="aksi_content_text"><a href="aksiya/aksiya_1.html">
+                                <div class="aksi_content_text"><a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>">
                                     <div class="data">
                                         <h3 class="data"><?= $aksi['Data']; ?></h3>
                                     </div>

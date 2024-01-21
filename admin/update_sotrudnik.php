@@ -26,15 +26,24 @@ if (!isset($_SESSION['admin'])) {
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
+                <a href="sotrudniki.php"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Сотрудники</a></li>
+                    <li><a class="link_name" href="sotrudniki.php">Сотрудники</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="profile.php">
+                <i class='bx bxs-offer'></i>
+                    <span class="link_name">Акции</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="profile.php">Акции</a></li>
                 </ul>
             </li>
             <li>
                 <div class="iocn-link">
                     <a href="#">
-                        <i class="bx bx-collection"></i>
+                        <i class='bx bxs-pizza'></i>
                         <span class="link_name">Товары</span>
                     </a>
                     <i class="bx bxs-chevron-down arrow"></i>
@@ -51,12 +60,12 @@ if (!isset($_SESSION['admin'])) {
                 </ul>
             </li>
             <li>
-                <a href="">
-                <i class='bx bxs-offer'></i>
-                    <span class="link_name">Акции</span>
+                <a href="category.php">
+                    <i class='bx bxs-category'></i>
+                    <span class="link_name">Категории</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="">Акции</a></li>
+                    <li><a class="link_name" href="category.php">Категории</a></li>
                 </ul>
             </li>
             <li>
@@ -94,7 +103,7 @@ if (!isset($_SESSION['admin'])) {
             <input type="text" name="password" value="<?= $user['password'] ?>">
             <img src="<?= $user['Image'] ?>" alt="">
             <input type="file" name="file" value="<?= $user['Image']?>">
-            <button>Изменить</button>
+            <button class="button_update"><span>Изменить</span></button>
         </form>
     </div>
 </div>

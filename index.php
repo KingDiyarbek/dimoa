@@ -9,6 +9,7 @@ foreach ($menuItems as $menuItem) {
     $categoryName = $menuItem['Name_category'];
     $menuByCategory[$categoryName][] = $menuItem;
 }
+$result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -86,10 +87,9 @@ foreach ($menuItems as $menuItem) {
 
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
+        <?php foreach ($result_aksii as $aksii) : ?>
+            <div class="swiper-slide"><img src="<?= $aksii['Image'] ?>" alt=""></div>
+        <?php endforeach; ?>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -272,6 +272,8 @@ foreach ($menuItems as $menuItem) {
                                 </form>
                             </div>
                         </div>
+
+                        
                     </div>
                 <?php endforeach; ?>
             <?php else : echo 'Товары отсутствуют' ?>
@@ -333,7 +335,7 @@ foreach ($menuItems as $menuItem) {
 
             <div class="footer_content">
                 <div class="footer_content_menu">
-                    <h2>Меню</h2>
+                    <h2>Меню</h2> 
                     <ul>
                     <?php foreach ($categories as $category) : ?>
                         <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>

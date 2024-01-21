@@ -269,6 +269,7 @@ html {
 }
 
 .setup_tovar  {
+  width: 120px;
   text-decoration: none;
   margin-left: -8px;
   border: none;
@@ -307,9 +308,14 @@ html {
   margin-top: 10px;
 }
 
+.aksi_content {
+  height: 500px;
+} 
+
 .aksi_btn {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 20px;
@@ -487,6 +493,10 @@ html {
   .menu {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .setup_tovar {
+    width: 108px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .sidebar.close {
@@ -523,6 +533,11 @@ html {
   .menu {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .setup_tovar {
+    width: 108px;
+    letter-spacing: 2px;
+  }
 }
 @media screen and (min-width: 576px) and (max-width: 768px)  {
   .sidebar.close {
@@ -557,27 +572,37 @@ html {
   }
   
   .menu {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .container_1 {
+    width: 240px;
+  }
+
+  .setup_tovar {
+    width: 108px;
+    letter-spacing: 1px;
   }
 }
 
 @media screen and (max-width: 576px)  {
   .sidebar.close {
-    width: 58px;
+    width: 38px;
   }
   .sidebar .logo-details i {
-    min-width: 58px;
+    min-width: 38px;
   }
   .sidebar .nav-links li i {
-    min-width: 58px;
+    min-width: 38px;
   }
 
   .sidebar.close ~ .home-section {
-    left: 58px;
+    left: 38px;
   }
 
   .tovar {
-    margin-left: 58px;
+    margin-left: 38px;
   }
 
   .container_tovar {
@@ -595,6 +620,24 @@ html {
   
   .menu {
     grid-template-columns: repeat(2 , 1fr);
+  }
+
+  .banner-image img {
+    height: 150px;
+  } 
+
+  .button-wrapper {
+    margin-right: 5px;
+  }
+
+  .delete {
+    width: 25px;
+  }
+
+  .setup_tovar {
+    width: 90px;
+    letter-spacing: normal;
+    padding: 6px 17px;
   }
 }
 

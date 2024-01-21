@@ -245,6 +245,7 @@ nav ul li:hover ul {
 .swiper-slide img {
     width: 100%;
     max-width: 1200px;
+    height: 600px;
     object-fit: cover;
     border-radius: 20px;
 }

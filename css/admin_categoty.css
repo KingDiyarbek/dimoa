@@ -1,5 +1,14 @@
 @import 'update.css';
-.update_content {
+.update {
+    padding-top: 50px;
+}
+
+.container_tovar {
+    max-width: 650px;
+}
+
+.update_category {
+margin: 0 auto;
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: repeat(2, 1fr);

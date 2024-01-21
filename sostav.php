@@ -33,7 +33,7 @@ foreach ($menuItems as $menuItem) {
                             <li><a href="#menu" class="header-menu__link">Меню</a>
                                 <ul>
                                 <?php foreach ($categories as $category) : ?>
-                                    <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                                    <li><a href="<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
                                 <?php endforeach; ?>
                                 </ul>
                             </li>
@@ -76,17 +76,17 @@ foreach ($menuItems as $menuItem) {
         <?php foreach ($categories as $category) : ?>
             <button class="accordion"><?= $category['Name_category'] ?></button>
             <?php if (isset($menuByCategory[$category['Name_category']])) : ?>
-                <?php foreach ($menuByCategory[$category['Name_category']] as $menuItem) : ?>
-                    <div class="panel">
-                        <div class="panel_content">
-                            <button class="accordion_pizza"><?= $menuItem['Name'] ?></button>
-                            <div class="panel_pizza">
-                                <h2>Состав</h2>
-                                <p><?= $menuItem['Description'] ?></p>
+                <div class="panel">
+                    <?php foreach ($menuByCategory[$category['Name_category']] as $menuItem) : ?>
+                            <div class="panel_content">
+                                <button class="accordion_pizza"><?= $menuItem['Name'] ?></button>
+                                <div class="panel_pizza">
+                                    <h2>Состав</h2>
+                                    <p><?= $menuItem['Description'] ?></p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             <?php else : ?>
                 <div class="panel">
                     <div class="panel_content">

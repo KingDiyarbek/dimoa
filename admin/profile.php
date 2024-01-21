@@ -26,18 +26,18 @@ if (!isset($_SESSION['admin'])) {
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
+                <a href="sotrudniki.php"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Сотрудники</a></li>
+                    <li><a class="link_name" href="sotrudniki.php">Сотрудники</a></li>
                 </ul>
             </li>
             <li>
-                <a href="">
+                <a href="profile.php">
                 <i class='bx bxs-offer'></i>
                     <span class="link_name">Акции</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="">Акции</a></li>
+                    <li><a class="link_name" href="profile.php">Акции</a></li>
                 </ul>
             </li>
             <li>
@@ -111,7 +111,7 @@ if (!isset($_SESSION['admin'])) {
                                 </a>
                             </div>
                             <div class="aksi_btn">
-                                <a href="config/delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="../image/profile/delete.png" alt=""></a>
+                                <a href="../config/delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="../image/profile/delete.png" alt=""></a>
                                 <a class="setup_tovar" href="update_aksii.php?id=<?= $aksi['idAksi'] ?>">Изменить</a>
                             </div>
 
