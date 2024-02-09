@@ -24,7 +24,6 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Kaushan+Script&family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <!--Стили элементов для корзины-->
-    <link href="https://lk.easynetshop.ru/frontend/v5/ens-5de72bb6.css" rel="stylesheet">
     <!--swiper-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <title>DiMoa</title>
@@ -59,8 +58,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                             </li>
 						</ul>
 					</nav>
-                    <div class="corzina" id="easynetshop-cart">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAACrUlEQVR4nO3W72sScRwH8KO/oOc96EHPehY96VHP1rMeBvP3ead3zmaoW1s1nG6DbZ7O7E8YYziCGptOGv2gH1Yrko2a2NTT6U1Dyslm20zLT2gJE9a8c3on4Rve8IH78uUFx4c7BOmkE3YxzQWvjrg+JS2uwFOk3UIthK/ZF0Ol+c85mF5Jg2U2kEbaJfe80SsOd+hgMbIHbnq/UttCBHCH/1V74Dyh3GHcrP8r2NwJMM2lhEU6l+guh3ujBudazQC1EAXr0m6lpvtfAHN8eN02uIkHwXW1czU36dkRDvkvnHU+6Cs/J50fuwRD1sNVIwiSLU4QJFccr8hGcbwgT4prKbJZuKYhI1rteFiFe8sNkeSTN7fHimvjdlib+FP/KAXv+oe3q2ca6ZpG9/6x3vLTN2SDal8MToJPd2ureiZCqOZjRt2FGhyt1Ti/URQUXC7BezA9DTRJZGqAGzj2XGhY4VCZ/j6oAYbU+KP8zIzgsMLfJoyGYg2QGTBcokkizQzcLG0NDoCQjRv0P6I9modHLkrCQJ5J9mpLRccU8F870HJJ/d+zTRWWEQL4fcQCNCq/WxdIK6TrQgDTRgNEMexyXWBYKvbkKSurS5NaDaf5uMbVqn0wm0/VBcaUir7s0B1WlzIagtN8XGNKNIywSQrDzrJdFKZJwMKUHSIyyTOEbeI4ts0nMGexQBSVT7AG0gpZgE9g2qCHuEp1kTUwLBV589Qkb8AEoc6xxlVeMYYOslkUpknAKIYGuQEJ+blk7/USH8BCZUGkywjXbOJYlg/grnm4vCBmzkBaLgvWA+6YTJzmIxdEfwNSpPI8Z2BEKl5m+0UpnqAJksgijSRG4GKmh/xVsNtahtsbGwVaLltpCFhBoqg2JOp+GRZ1v21FaZnEFVMoTjcM7OR/yG+55VR3p5ah8AAAAABJRU5ErkJggg==">
+                    <div class="corzina">   
                     </div>
 				</div>
 			</div>
@@ -263,17 +261,19 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                                     <h3><?= $menuItem['Name'] ?></h3>
                                     <p><?= $menuItem['Description'] ?></p>
                                 </div>
-
+                                <div class="product__quantity"></div>
                                 <form class="button-wrapper" action="" method="post">
                                     <input type="hidden" value="<?= $menuItem['Price'] ?>">
                                     <h1 class="btn outline"><?= $menuItem['Price'] ?></h1>
                                     <input type="hidden" name="id" value="<?= $menuItem['idMenu'] ?>">
-                                    <button type="submit">Выбрать</button>
+                                    <a class="button_shop" data-sb-id-or-vendor-code="<?= $menuItem['idMenu'] ?>"
+                                    data-sb-product-name="<?= $menuItem['Name'] ?>"
+                                    data-sb-product-price="<?= $menuItem['Price'] ?>"
+                                    data-sb-product-quantity="1"
+                                    data-sb-product-img="<?= $menuItem['Image'] ?>" type="submit">Выбрать</a>
                                 </form>
                             </div>
                         </div>
-
-                        
                     </div>
                 <?php endforeach; ?>
             <?php else : echo 'Товары отсутствуют' ?>
@@ -393,12 +393,40 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
     <script src="js/modal.js"></script>
     <script src="js/modal_menu.js"></script>
     <!--Библиотека jQuery-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--Готовый скрипт корзины-->
-    <script defer src="https://lk.easynetshop.ru/frontend/v5/ens-5de72bb6.js"></script>
     <!--Swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="js/swiper.js"></script>
+
+    <link rel="stylesheet" href="smartbasket/css/smartbasket.min.css">
+
+    <div class="smart-basket__wrapper"></div>
+
+    <script src="./smartbasket/js/smartbasket.min.js"></script>
+
+        <script>
+            $(function () {
+                $('.smart-basket__wrapper').smbasket({
+                    productElement: 'menu_card',
+                    buttonAddToBasket: 'button_shop',
+                    productPrice: 'product__price-number',
+                    productSize: 'product__size-element',
+                    
+                    productQuantityWrapper: 'product__quantity',
+                    smartBasketMinArea: 'corzina',
+                    countryCode: '+7',
+                    smartBasketCurrency: '₽',
+                    smartBasketMinIconPath: './smartbasket/img/shopping-basket-wight1.svg',
+
+                    agreement: {
+                        isRequired: true,
+                        isChecked: true,
+                        isLink: 'https://artstranger.ru/privacy.html',
+                    },
+                    nameIsRequired: false,
+                });
+            });
+        </script>
 </body>
 
 </html>
