@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 21 2024 г., 23:46
+-- Время создания: Фев 11 2024 г., 19:22
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.14
 
@@ -185,6 +185,29 @@ INSERT INTO `user` (`idUser`, `login`, `password`, `Name`, `Surname`, `Patronymi
 (2, 'king001', 'dima1234', '45646564546', 'Шмид', 'Павлович', 'Администратор', '../image'),
 (8, 'Lena213', 'Lena213', 'Лена', 'Ильянова', 'Игопевна', 'Оператор', '../image/sotrudnik/');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `zakaz`
+--
+
+CREATE TABLE `zakaz` (
+  `idZakaz` int NOT NULL,
+  `Name` varchar(500) NOT NULL,
+  `Adres` varchar(500) NOT NULL,
+  `NameProduct` varchar(100) NOT NULL,
+  `Kolichestvo` int NOT NULL,
+  `Sena` int NOT NULL,
+  `Itogo` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Дамп данных таблицы `zakaz`
+--
+
+INSERT INTO `zakaz` (`idZakaz`, `Name`, `Adres`, `NameProduct`, `Kolichestvo`, `Sena`, `Itogo`) VALUES
+(1, 'rt', 'tre', 'tre', 2, 2, 2);
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -221,6 +244,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`);
 
 --
+-- Индексы таблицы `zakaz`
+--
+ALTER TABLE `zakaz`
+  ADD PRIMARY KEY (`idZakaz`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -253,6 +282,12 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `user`
   MODIFY `idUser` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT для таблицы `zakaz`
+--
+ALTER TABLE `zakaz`
+  MODIFY `idZakaz` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
