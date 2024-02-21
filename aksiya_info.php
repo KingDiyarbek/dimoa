@@ -43,14 +43,48 @@ $aksiya_info = mysqli_fetch_assoc($aksiya_info);
                             </li>
 						</ul>
 					</nav>
-                    <div class="corzina" id="easynetshop-cart">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAACrUlEQVR4nO3W72sScRwH8KO/oOc96EHPehY96VHP1rMeBvP3ead3zmaoW1s1nG6DbZ7O7E8YYziCGptOGv2gH1Yrko2a2NTT6U1Dyslm20zLT2gJE9a8c3on4Rve8IH78uUFx4c7BOmkE3YxzQWvjrg+JS2uwFOk3UIthK/ZF0Ol+c85mF5Jg2U2kEbaJfe80SsOd+hgMbIHbnq/UttCBHCH/1V74Dyh3GHcrP8r2NwJMM2lhEU6l+guh3ujBudazQC1EAXr0m6lpvtfAHN8eN02uIkHwXW1czU36dkRDvkvnHU+6Cs/J50fuwRD1sNVIwiSLU4QJFccr8hGcbwgT4prKbJZuKYhI1rteFiFe8sNkeSTN7fHimvjdlib+FP/KAXv+oe3q2ca6ZpG9/6x3vLTN2SDal8MToJPd2ureiZCqOZjRt2FGhyt1Ti/URQUXC7BezA9DTRJZGqAGzj2XGhY4VCZ/j6oAYbU+KP8zIzgsMLfJoyGYg2QGTBcokkizQzcLG0NDoCQjRv0P6I9modHLkrCQJ5J9mpLRccU8F870HJJ/d+zTRWWEQL4fcQCNCq/WxdIK6TrQgDTRgNEMexyXWBYKvbkKSurS5NaDaf5uMbVqn0wm0/VBcaUir7s0B1WlzIagtN8XGNKNIywSQrDzrJdFKZJwMKUHSIyyTOEbeI4ts0nMGexQBSVT7AG0gpZgE9g2qCHuEp1kTUwLBV589Qkb8AEoc6xxlVeMYYOslkUpknAKIYGuQEJ+blk7/USH8BCZUGkywjXbOJYlg/grnm4vCBmzkBaLgvWA+6YTJzmIxdEfwNSpPI8Z2BEKl5m+0UpnqAJksgijSRG4GKmh/xVsNtahtsbGwVaLltpCFhBoqg2JOp+GRZ1v21FaZnEFVMoTjcM7OR/yG+55VR3p5ah8AAAAABJRU5ErkJggg==">
-                    </div>
+                    <div class="corzina"><img class="corzina_open" src="image/shopping-basket-wight1.svg" alt=""></div>
 				</div>
 			</div>
 </header>
 
+<div class="zakaz">
+        <div class="zakaz_window">
+            <div class="zakaz_head">
+                <div class="product_name">Товар</div>
+                <div class="product_price">Цена</div>
+                <div class="product_quality">Количество</div>
+                <div class="product_itogo">Общая цена</div>
+                <div class="product_delete">Удалить</div>
+            </div>
+            <div class="smart_basket"></div>
+            
+            <div class="itogo">
 
+                <div class="cart-count-container">
+                    Количество товаров в корзине: <span class="cart-count">0</span>
+                </div>
+
+
+                <div class="total-container" name="total"  value="0">
+                            Общая сумма: <span class="total" name="total"  value="0">0</span>
+                </div>
+
+            </div>
+            
+            <form method="post" action="save_order.php">
+                <div class="checkout-form">
+                    <h2>Оформление заказа</h2>
+                    <input type="text" name="fullName" placeholder="ФИО">
+                    <input type="text" name="address" placeholder="Адрес">
+                    <input type="text" name="phone" placeholder="Телефон">
+                    <input type="hidden" name="total" class="total" value="0">
+                    <!-- Скрытое поле для передачи общей суммы заказа -->
+                    <button type="submit">Оформить заказ</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 <div class="content">
     <div class="container">
@@ -81,5 +115,7 @@ $aksiya_info = mysqli_fetch_assoc($aksiya_info);
     </div>
 </div>
 
+<script src="js/cart.js"></script>
+<script src="js/modal.js"></script>
 </body> 
 </html>

@@ -98,13 +98,12 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
 
             </div>
             
-            <form method="post" action="save_order.php">
+            <form method="post" action="config/zakaz.php">
                 <div class="checkout-form">
                     <h2>Оформление заказа</h2>
                     <input type="text" name="fullName" placeholder="ФИО">
                     <input type="text" name="address" placeholder="Адрес">
                     <input type="text" name="phone" placeholder="Телефон">
-                    <input type="hidden" name="total" class="total" value="0">
                     <!-- Скрытое поле для передачи общей суммы заказа -->
                     <button type="submit">Оформить заказ</button>
                 </div>

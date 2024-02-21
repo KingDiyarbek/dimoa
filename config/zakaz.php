@@ -1,10 +1,13 @@
 <?php
 session_start();
-$orderData = json_decode(file_get_contents('php://input'), true);
 require_once 'connect.php';
-$NameProduct = $_POST['products'];
-$Itogo = $_POST['phone'];
+
+// Получаем данные из POST-запроса
+$NameProduct = $_POST['products']; // Правильно получаем выбранные товары
+$Itogo = $_POST['total']; // Здесь берем общую сумму заказа из скрытого поля
 $Name = $_POST['fullName'];
 $Adres = $_POST['address'];
-mysqli_query($connect, query:"INSERT INTO `zakaz` (`Name`, `Adres`, `NameProduct`,`Itogo`) VALUES ('$Name', '$Adres', '$NameProduct','$Itogo')");
+
+// Выполняем запрос к базе данных для добавления заказа
+mysqli_query($connect, "INSERT INTO `zakaz` (`idZakaz`, `Name`, `Adres`, `NameProduct`, `Itogo`) VALUES (NULL, '$Name', '$Adres', '$NameProduct', '$Itogo')");
 ?>

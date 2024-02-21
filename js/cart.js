@@ -141,6 +141,11 @@ document.addEventListener('DOMContentLoaded', function() {
             inputName.setAttribute('value', `${item.name}|${item.price}|${item.quantity}`);
             form.appendChild(inputName);
         }
+        const inputTotal = document.createElement('input');
+        inputTotal.setAttribute('type', 'hidden');
+        inputTotal.setAttribute('name', 'total');
+        inputTotal.setAttribute('value', calculateTotal());
+        form.appendChild(inputTotal);
     }
 
     function updateCartCount() {
