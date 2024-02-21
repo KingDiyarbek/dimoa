@@ -40,6 +40,12 @@ const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
   
     modalElem.addEventListener('click', closeModal);
   };
+
+  modalController({
+    modal: '.zakaz',
+    btnOpen: '.corzina_open',
+    btnClose: '.modal__close',
+  });
   
   modalController({
     modal: '.modal1',

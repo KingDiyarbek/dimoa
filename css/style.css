@@ -229,6 +229,169 @@ nav ul li:hover ul {
   width: 50px;
   height: 50px;
 }
+
+
+.zakaz {
+  width: 100%;
+  background: white;
+  position: fixed;
+  inset: 0;
+  cursor: pointer;
+  padding: 30px;
+  overflow-y: auto;
+  display: none;
+  z-index: 50;
+}
+
+.zakaz_window {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 3px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding-bottom: 15px;
+  cursor: default;
+
+}
+
+.zakaz_head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+
+.zakaz_head:first-child {
+    border-bottom: 1px dashed #d2d2d2;
+}
+
+.product_name{
+  width: 100%;
+  max-width: 470px;
+  padding: 10px 0 10px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.product_price {
+  width: 100%;
+  max-width: 150px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.product_quality {
+  width: 100%;
+  max-width: 130px;
+  display: flex;
+  align-items: center;
+  padding: 10px
+}
+
+.product_itogo {
+  width: 100%;
+  max-width: 140px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.product_delete {
+  width: 100%;
+  max-width: 100px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.smart_basket {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 15px 0;
+}
+
+.cart-item {
+  display: flex;
+  width: 470px;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+}
+
+.cart_content {
+  display: flex;
+  align-items: center;
+}
+
+.cart_content h4 {
+  width: 440px;
+  font-size: 16px;
+}
+
+.cart_content h5{
+  width: 130px;
+  font-size: 16px;
+}
+
+.cart_content p {
+  width: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cart_content span {
+  font-size: 16px;
+  color: red;
+}
+
+.checkout-form {
+  padding: 30px 15px;
+  background: red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.checkout-form h2 {
+  width: 100%;
+}
+
+.checkout-form input {
+  width: 300px;
+  height: 60px;
+  padding: 0 15px;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+}
+
+.itogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px dashed #d2d2d2;
+  align-items: center;
+  padding: 30px 15px;
+  font-weight: 700;
+}
+
+.cart-count-container {
+  margin-right: 30px
+}
+
+.increase-quantity {
+  color: #23cc56;
+  margin-right: 90px;
+}
+
+.remove-item {
+  margin-left: 80px;
+}
 /*Botton*/
 
 
