@@ -42,12 +42,48 @@ $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
                             </li>
 						</ul>
 					</nav>
-                    <div class="corzina">
-                        
-                    </div>
+                    <div class="corzina"><img class="corzina_open" src="image/shopping-basket-wight1.svg" alt=""></div>
 				</div>
 			</div>
 </header>
+
+<div class="zakaz">
+        <div class="zakaz_window">
+            <div class="zakaz_head">
+                <div class="product_name">Товар</div>
+                <div class="product_price">Цена</div>
+                <div class="product_quality">Количество</div>
+                <div class="product_itogo">Общая цена</div>
+                <div class="product_delete">Удалить</div>
+            </div>
+            <div class="smart_basket"></div>
+            
+            <div class="itogo">
+
+                <div class="cart-count-container">
+                    Количество товаров в корзине: <span class="cart-count">0</span>
+                </div>
+
+
+                <div class="total-container" name="total"  value="0">
+                            Общая сумма: <span class="total" name="total"  value="0">0</span>
+                </div>
+
+            </div>
+            
+            <form method="post" action="save_order.php">
+                <div class="checkout-form">
+                    <h2>Оформление заказа</h2>
+                    <input type="text" name="fullName" placeholder="ФИО">
+                    <input type="text" name="address" placeholder="Адрес">
+                    <input type="text" name="phone" placeholder="Телефон">
+                    <input type="hidden" name="total" class="total" value="0">
+                    <!-- Скрытое поле для передачи общей суммы заказа -->
+                    <button type="submit">Оформить заказ</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 <section class="section_aksi">
     <div class="container">
@@ -213,35 +249,6 @@ $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
 <!--Библиотека jQuery-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--Готовый скрипт корзины-->
-
-<link rel="stylesheet" href="smartbasket/css/smartbasket.min.css">
-
-<div class="smart-basket__wrapper"></div>
-
-<script src="./smartbasket/js/smartbasket.min.js"></script>
-
-    <script>
-        $(function () {
-            $('.smart-basket__wrapper').smbasket({
-                productElement: 'menu_card',
-                buttonAddToBasket: 'button_shop',
-                productPrice: 'product__price-number',
-                productSize: 'product__size-element',
-                
-                productQuantityWrapper: 'product__quantity',
-                smartBasketMinArea: 'corzina',
-                countryCode: '+7',
-                smartBasketCurrency: '₽',
-                smartBasketMinIconPath: './smartbasket/img/shopping-basket-wight1.svg',
-
-                agreement: {
-                    isRequired: true,
-                    isChecked: true,
-                    isLink: 'https://artstranger.ru/privacy.html',
-                },
-                nameIsRequired: false,
-            });
-        });
-    </script>
+<script src="js/cart.js"></script>
 </body>
 </html>
