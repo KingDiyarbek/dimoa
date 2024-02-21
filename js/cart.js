@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Отправка данных на сервер или обработка локально
             addToCart(productId, productName, productPrice, productImg);
+        
         });
     });
 
@@ -146,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         inputTotal.setAttribute('name', 'total');
         inputTotal.setAttribute('value', calculateTotal());
         form.appendChild(inputTotal);
+
     }
 
     function updateCartCount() {
@@ -156,6 +158,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Показываем контейнер с количеством товаров в корзине
         const cartCountContainer = document.querySelector('.cart-count-container');
         cartCountContainer.style.display = 'block';
+
+            // Показываем количество товаров рядом с изображением корзины
+    const cartIconItemCount = document.querySelector('.corzina_kol');
+    cartIconItemCount.textContent = calculateCartItemCount().toString();
     }
 
     function calculateCartItemCount() {

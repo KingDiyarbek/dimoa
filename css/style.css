@@ -196,39 +196,55 @@ nav ul li:hover ul {
   }
 
 /*corzina*/
-.corzina{
-  cursor: pointer;
-  z-index: 50;
-}
 
-.corzina button {
+.corzina{
+  z-index: 50;
   background: unset;
   border: none;
   cursor: pointer;
   transition: .3s linear;
 }
 
-.corzina button:hover {
+.corzina:hover {
   background: rgb(161, 0, 0);
   border-radius: 50%;
 }
 
-.corzina button span {
-  min-width: 25px;
-  min-height: 25px;
+.corzina_kol {
+  min-width: 35px;
+  min-height: 16px;
   position: absolute;
   background: red;
   padding: 5px;
-  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
   border-radius: 50%;
+text-align: center;
 }
 
 .corzina img {
   width: 50px;
   height: 50px;
 }
+
+.cart-notification {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: bold;
+}
+
 
 
 .zakaz {
@@ -878,6 +894,9 @@ textarea {
   font-weight:700;
 }
 [type="submit"]:hover { background:#38a17e; color: white;}
+
+
+
 /*SOCIAL*/
 .social {display: inline-block;}
 .social a {

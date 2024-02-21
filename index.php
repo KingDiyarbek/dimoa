@@ -58,7 +58,10 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                             </li>
 						</ul>
 					</nav>
-                    <div class="corzina"><img class="corzina_open" src="image/shopping-basket-wight1.svg" alt=""></div>
+                    <div class="corzina">
+                        <img class="corzina_open" src="image/shopping-basket-wight1.svg" alt="">
+                        <span class="corzina_kol">0</span>
+                    </div>
 				</div>
 			</div>
 </header>
@@ -315,6 +318,14 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
             <?php else : echo 'Товары отсутствуют' ?>
             <?php endif; ?>
         <?php endforeach; ?>
+        <div class="cart-notification" id="cartNotification">
+            Товар добавлен в корзину!
+        </div>
+    </div>
+
+    <div class="modal" id="modal_tovar">
+        <button class="modal__close">&#10006;</button>
+        <!-- Сюда будет вставлена информация из menu_card -->
     </div>
 
     <div class="komentariya">
@@ -435,6 +446,72 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
     <script src="js/swiper.js"></script>
 
     <script src="js/cart.js"></script>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.button_shop');
+            const cartNotification = document.getElementById('cartNotification');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    // Вместо этого места, где вы добавляете товар в корзину, вы можете вставить вашу логику
+                    // Здесь мы просто показываем уведомление о добавлении товара в корзину
+                    cartNotification.style.display = 'block';
+                    setTimeout(function() {
+                        cartNotification.style.display = 'none';
+                    }, 1000); // Скрыть уведомление через 2 секунды
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuCards = document.querySelectorAll('.menu_card');
+            const modalTovar = document.getElementById('modal_tovar');
+
+            menuCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Получаем информацию из menu_card
+                    const productInfo = {
+                        id: this.dataset.productId,
+                        name: this.querySelector('h3').textContent,
+                        price: this.querySelector('.btn').textContent,
+                        image: this.querySelector('.banner-image img').src,
+                        description: this.querySelector('p').textContent
+                    };
+
+                    // Очищаем содержимое модального окна
+                    modalTovar.innerHTML = '';
+
+                    // Создаем элементы для отображения информации о товаре в модальном окне
+                    const productImage = document.createElement('img');
+                    productImage.src = productInfo.image;
+
+                    const productName = document.createElement('h3');
+                    productName.textContent = productInfo.name;
+
+                    const productPrice = document.createElement('p');
+                    productPrice.textContent = 'Price: ' + productInfo.price;
+
+                    const productDescription = document.createElement('p');
+                    productDescription.textContent = 'Description: ' + productInfo.description;
+
+                    // Добавляем созданные элементы в модальное окно
+                    modalTovar.appendChild(productImage);
+                    modalTovar.appendChild(productName);
+                    modalTovar.appendChild(productPrice);
+                    modalTovar.appendChild(productDescription);
+
+                    // Открываем модальное окно
+                    modalTovar.style.display = 'block';
+                });
+            });
+
+        });
+    </script>
 </body>
 
 </html>
