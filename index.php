@@ -66,7 +66,6 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
 			</div>
 </header>
 
-
     <div class="intro">
         <div class="intro_inner">
             <div class="container">
@@ -83,7 +82,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                 <div class="product_name">Товар</div>
                 <div class="product_price">Цена</div>
                 <div class="product_quality">Количество</div>
-                <div class="product_itogo">Общая цена</div>
+                <div class="product_itogo">Итого</div>
                 <div class="product_delete">Удалить</div>
             </div>
             <div class="smart_basket"></div>
@@ -101,17 +100,26 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
 
             </div>
             
-            <form method="post" action="config/zakaz.php">
+            <form method="post" action="config/zakaz.php" id="checkoutForm">
                 <div class="checkout-form">
                     <h2>Оформление заказа</h2>
-                    <input type="text" name="fullName" placeholder="ФИО">
-                    <input type="text" name="address" placeholder="Адрес">
-                    <input type="text" name="phone" placeholder="Телефон">
+                    <input type="text" name="fullName" id="fullName" placeholder="ФИО" required>
+                    <input type="text" name="address" id="address" placeholder="Адрес" required>
+                    <input type="tel" name="phone" id="phone" placeholder="Телефон" required>
                     <!-- Скрытое поле для передачи общей суммы заказа -->
-                    <button type="submit">Оформить заказ</button>
+                    <input type="hidden" name="total" id="total" value="">
+                    <button type="submit" id="submitBtn">Оформить заказ</button>
                 </div>
             </form>
+
+            <div id="orderConfirmationModal" class="Modal_thanks">
+                <div class="Modal_thanks-content">
+                    <h2>Заказ принят</h2>
+                    <p>Спасибо за ваш заказ!</p>
+                </div>
+            </div>
         </div>
+        <button class="corzina__close">&#10006;</button>
     </div>
 
     <section class="section">
@@ -322,11 +330,11 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
             Товар добавлен в корзину!
         </div>
     </div>
-
-    <div class="modal" id="modal_tovar">
-        <button class="modal__close">&#10006;</button>
+    
+        <div class="modal_food" id="modal_tovar">
+            <button class="modal__close">&#10006;</button>
         <!-- Сюда будет вставлена информация из menu_card -->
-    </div>
+        </div>
 
     <div class="komentariya">
         <div class="komentariya_content">
@@ -466,52 +474,11 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
             });
         });
     </script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuCards = document.querySelectorAll('.menu_card');
-            const modalTovar = document.getElementById('modal_tovar');
 
-            menuCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Получаем информацию из menu_card
-                    const productInfo = {
-                        id: this.dataset.productId,
-                        name: this.querySelector('h3').textContent,
-                        price: this.querySelector('.btn').textContent,
-                        image: this.querySelector('.banner-image img').src,
-                        description: this.querySelector('p').textContent
-                    };
+<script>
 
-                    // Очищаем содержимое модального окна
-                    modalTovar.innerHTML = '';
-
-                    // Создаем элементы для отображения информации о товаре в модальном окне
-                    const productImage = document.createElement('img');
-                    productImage.src = productInfo.image;
-
-                    const productName = document.createElement('h3');
-                    productName.textContent = productInfo.name;
-
-                    const productPrice = document.createElement('p');
-                    productPrice.textContent = 'Price: ' + productInfo.price;
-
-                    const productDescription = document.createElement('p');
-                    productDescription.textContent = 'Description: ' + productInfo.description;
-
-                    // Добавляем созданные элементы в модальное окно
-                    modalTovar.appendChild(productImage);
-                    modalTovar.appendChild(productName);
-                    modalTovar.appendChild(productPrice);
-                    modalTovar.appendChild(productDescription);
-
-                    // Открываем модальное окно
-                    modalTovar.style.display = 'block';
-                });
-            });
-
-        });
     </script>
+    
 </body>
 
 </html>

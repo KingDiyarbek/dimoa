@@ -1,8 +1,51 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Код для обработки отправки формы
+    const checkoutForm = document.getElementById('checkoutForm');
+    const orderConfirmationModal = document.getElementById('orderConfirmationModal');
+
+    checkoutForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвратить отправку формы
+
+        // Здесь можете добавить проверку формы, если необходимо
+
+        // Отправка данных формы в базу данных
+        const formData = new FormData(checkoutForm);
+        fetch(checkoutForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Показать модальное окно после успешного оформления заказа
+            orderConfirmationModal.style.display = 'block';
+
+            // Закрыть модальное окно через 2 секунды
+            setTimeout(function() {
+                orderConfirmationModal.style.display = 'none';
+                clearCartData(); // Очистить корзину после закрытия модального окна и сохранить данные для обновления
+                updateCart(); // Обновить корзину после очистки
+                clearForm(); // Очистить форму после успешной отправки данных
+            }, 2000);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Код для работы с корзиной товаров и другие функции
+
+    function clearForm() {
+        // Очистить значения полей формы
+        checkoutForm.reset();
+    }
+
+    // Остальной код здесь...
+
+    // Код для работы с корзиной товаров и другие функции
     const addToCartButtons = document.querySelectorAll('.button_shop');
     let total = 0; // Переменная для хранения общей суммы
     let cartItemCount = 0; // Переменная для хранения количества товаров в корзине
-    const cart = {}; // Объект для хранения товаров в корзине и их количества
+    let cart = {}; // Объект для хранения товаров в корзине и их количества
 
     // Загрузка данных о корзине из localStorage при загрузке страницы
     const savedCart = localStorage.getItem('cart');
@@ -10,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         Object.assign(cart, JSON.parse(savedCart));
         updateCart();
     }
-
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function(event) {
             event.preventDefault();
@@ -59,6 +101,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const cartContainer = document.querySelector('.smart_basket');
         cartContainer.innerHTML = '';
 
+            // Проверяем, пуста ли корзина
+            if (Object.keys(cart).length === 0) {
+                const emptyCartMessage = document.createElement('p');
+                emptyCartMessage.textContent = 'Ваша корзина пуста';
+                cartContainer.appendChild(emptyCartMessage);
+                return; // Завершаем функцию, чтобы не выполнять дальнейший код
+            }
+
         // Рендерим каждый товар в корзине
         for (const [productId, item] of Object.entries(cart)) {
             const cartItemElement = document.createElement('div');
@@ -72,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><span class="quantity">${item.quantity}</span></p>
                     <button class="increase-quantity" data-id="${productId}">+</button>
                     <p>${item.total.toFixed(2)}</p>
-                    <span class="remove-item" data-id="${productId}">удалить</span>
+                    <h3 class="remove-item" data-id="${productId}">✖</h3>
                 </div>
             `;
             cartContainer.appendChild(cartItemElement);
@@ -124,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Показываем общую сумму также в элементе total-container
         const totalContainer = document.querySelector('.total-container');
         totalContainer.style.display = 'block';
-        totalContainer.querySelector('.total').textContent = `$${calculateTotal().toFixed(2)}`;
+        totalContainer.querySelector('.total').textContent = `${calculateTotal().toFixed(2)}`;
     }
 
     function updateForm() {
@@ -159,9 +209,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const cartCountContainer = document.querySelector('.cart-count-container');
         cartCountContainer.style.display = 'block';
 
-            // Показываем количество товаров рядом с изображением корзины
-    const cartIconItemCount = document.querySelector('.corzina_kol');
-    cartIconItemCount.textContent = calculateCartItemCount().toString();
+        // Показываем количество товаров рядом с изображением корзины
+        const cartIconItemCount = document.querySelector('.corzina_kol');
+        cartIconItemCount.textContent = calculateCartItemCount().toString();
     }
 
     function calculateCartItemCount() {
@@ -187,6 +237,12 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
+    function clearCartData() {
+        // Очищаем корзину и сохраняем пустую корзину в localStorage
+        cart = {};
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('remove-item')) {
             const productId = event.target.getAttribute('data-id');
@@ -198,4 +254,4 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCart();
         }
     });
-});
+}); 
