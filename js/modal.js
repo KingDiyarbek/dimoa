@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
               const productInfo = {
                   name: this.querySelector('h3').textContent,
                   price: this.querySelector('.btn').textContent,
+                  weight: this.querySelector('.weight').textContent,
                   image: this.querySelector('.banner-image img').src,
                   description: this.querySelector('p').textContent
               };
@@ -76,13 +77,23 @@ document.addEventListener('DOMContentLoaded', function() {
               const productDescription = document.createElement('p');
               productDescription.textContent = 'Состав: ' + productInfo.description;
 
+              const priceWeightContainer = document.createElement('div');
+              priceWeightContainer.classList.add('price-weight-container');
+
               const productPrice = document.createElement('h5');
               productPrice.classList.add('product-price');
               productPrice.textContent = productInfo.price;
 
+              const productWeight = document.createElement('h5');
+              productWeight.classList.add('product-weight');
+              productWeight.textContent = 'Вес: ' + productInfo.weight;
+
+              priceWeightContainer.appendChild(productWeight);
+              priceWeightContainer.appendChild(productPrice);
+
               productDetails.appendChild(productName);
               productDetails.appendChild(productDescription);
-              productDetails.appendChild(productPrice);
+              productDetails.appendChild(priceWeightContainer);
               productContainer.appendChild(productImage);
               productContainer.appendChild(productDetails);
 
@@ -158,6 +169,11 @@ const modals = [
   modal: '.modal_food4',
   btnOpen: '.info_content_img_food4',
   btnClose: '.modal__close_img',
+},
+{
+  modal: '.create',
+  btnOpen: '.create_category',
+  btnClose: '.modal__close',
 }
 ];
 

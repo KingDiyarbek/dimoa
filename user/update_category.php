@@ -3,8 +3,8 @@ session_start();
 require_once '../config/connect.php';
 $id = $_GET['id'];
 $result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
-$tovar = mysqli_query($connect, query:"SELECT * FROM `menu` WHERE `idMenu`= '$id'");
-$tovar = mysqli_fetch_assoc($tovar);
+$category = mysqli_query($connect, query:"SELECT * FROM `category` WHERE `idCategory` = '$id'");
+$category = mysqli_fetch_assoc($category);
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +12,8 @@ $tovar = mysqli_fetch_assoc($tovar);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/update.css">
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <title>Document</title>
 </head>
 <body>
@@ -24,8 +24,14 @@ $tovar = mysqli_fetch_assoc($tovar);
         </div>
         <ul class="nav-links">
             <li>
+                <a href="#"><i class='bx bxs-user'></i><span class="link_name">Сотрудники</span></a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Сотрудники</a></li>
+                </ul>
+            </li>
+            <li>
                 <a href="">
-                    <i class='bx bxs-offer'></i>
+                <i class='bx bxs-offer'></i>
                     <span class="link_name">Акции</span>
                 </a>
                 <ul class="sub-menu blank">
@@ -45,7 +51,7 @@ $tovar = mysqli_fetch_assoc($tovar);
                     <?php
                     while ($sidebar = mysqli_fetch_assoc($result_sidebar)) {
                     ?>
-                        <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name_category']; ?></a></li>
+                    <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name_category']; ?></a></li>
                     <?php
                     }
                     ?>
@@ -67,7 +73,7 @@ $tovar = mysqli_fetch_assoc($tovar);
                     </div>
                     <div class="name-job">
                         <div class="profile_name"><?= $_SESSION['user']['Name'] ?> <?= $_SESSION['user']['Surname'] ?></div>
-                        <div class="job"><?= $_SESSION['user']['Post'] ?></div>
+                        <div class="job"><?= $_SESSION['user'] ['Post'] ?></div>
                     </div>
                     <a href="../config/logout.php"><i class="bx bx-log-out"></i></a>
                 </div>
@@ -81,22 +87,15 @@ $tovar = mysqli_fetch_assoc($tovar);
     </section>
 <div class="update">
     <div class="update_content">
-        <form action="../config/update_tovar.php" method="post"  enctype="multipart/form-data">
-            <input type="hidden" name="id_tovar" value="<?= $tovar['idMenu']?>">
-            <input type="hidden" name="id_category" value="<?= $tovar['Category_idCategory']?>">
+        <form action="../config/update_category.php" method="post"  enctype="multipart/form-data">
+            <input type="hidden" name="id_category" value="<?= $category['idCategory']?>">
             <label for="Name">Название</label>
-            <input type="text" name="Name" value="<?= $tovar['Name']?>">
-            <label for="Price" >Цена</label>
-            <input type="text" name="Price" value="<?= $tovar['Price']?>">
-            <label for="Description">Описание</label>
-            <textarea name="Description"><?= $tovar['Description']?></textarea>
-            <input type="file" name="file" value="<?= $tovar['Image']?>">
-            <img src="<?= $tovar['Image']?>" alt="">
-            <button>Изменить</button>
+            <input type="text" name="Name" value="<?= $category['Name_category']?>">
+            <button class="button_update"><span>Изменить</span></button>
         </form>
     </div>
 </div>
 <script src="../js/swiper_menu.js"></script>
-<script src="../js/profile.js"></script>
+<script src="js/profile.js"></script>
 </body>
 </html>

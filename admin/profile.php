@@ -130,7 +130,7 @@ if (!isset($_SESSION['admin'])) {
         <div class="container_create_aksi">
             <h1>Добавление акции</h1>
             <div class="content_create_aksi">
-                <form action="config/create_aksi.php" method="post" enctype="multipart/form-data">
+                <form action="../config/create_aksi.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="Name" placeholder="Названия">
                     <input type="date" name="Date">
                     <textarea name="Description" placeholder="Названия"></textarea>

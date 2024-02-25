@@ -307,6 +307,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                                     <div class="banner-image"><img src="<?= $menuItem['Image'] ?>" alt=""></div>
                                     <h3><?= $menuItem['Name'] ?></h3>
                                     <p><?= $menuItem['Description'] ?></p>
+                                    <h4 class="weight"><?= $menuItem['Weight'] ?></h4>
                                 </div>
                                 <div class="product__quantity"></div>
                                 <form class="button-wrapper" action="" method="post">
@@ -350,7 +351,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                         <input type="text" name="name" class="feedback-input" placeholder="Имя" />
                         <input type="text" name="email" class="feedback-input" placeholder="Email или телефон номер" />
                         <textarea name="komentariya" class="feedback-input" placeholder="Комментария"></textarea>
-                        <input type="file" name="file" class="feedback-input">
+                        <input type="file" name="files[]" class="feedback-input" multiple>
                         <input type="submit" value="Отправить" />
                         
                     </form>

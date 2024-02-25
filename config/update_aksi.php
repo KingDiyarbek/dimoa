@@ -15,5 +15,10 @@ if (!empty($_FILES['file']['name'])) {
     mysqli_query($connect, "UPDATE aksi SET Name = '$Name', Data = '$Data', Description = '$Description' WHERE idAksi = '$id_aksiya'");
 }
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
-?>
+if ($_SESSION['user']['Post'] == 'Администратор') {
+    // Если пользователь - администратор, перенаправляем его на страницу администратора
+    header('Location: ../user/profile.php');
+} else {
+    // Иначе, если пользователь - обычный пользователь, перенаправляем его на страницу пользователя
+    header('Location: ../admin/profile.php');
+}

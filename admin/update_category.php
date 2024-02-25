@@ -87,7 +87,7 @@ $category = mysqli_fetch_assoc($category);
     </section>
 <div class="update">
     <div class="update_content">
-        <form action="config/update_category.php" method="post"  enctype="multipart/form-data">
+        <form action="../config/update_category.php" method="post"  enctype="multipart/form-data">
             <input type="hidden" name="id_category" value="<?= $category['idCategory']?>">
             <label for="Name">Название</label>
             <input type="text" name="Name" value="<?= $category['Name_category']?>">

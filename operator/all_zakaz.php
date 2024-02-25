@@ -1,14 +1,13 @@
 <?php
 session_start();
 require_once '../config/connect.php';
-$result_konentariya = mysqli_query($connect, query: "SELECT * FROM `komentariya`  WHERE `Status` = 'Прочитано' ORDER BY `komentariya`.`Date` DESC");
+$result_zakaz = mysqli_query($connect, query: "SELECT * FROM `zakaz` WHERE `Status` = 'Готово' ORDER BY `zakaz`.`Data` DESC");
 if (!isset($_SESSION['operator'])) {
-    header('Location: admin.php');
+    header('Location: ../admin.php');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +15,8 @@ if (!isset($_SESSION['operator'])) {
     <link rel="stylesheet" href="../css/komentariya.css">
     <title>Document</title>
 </head>
-
 <body>
-<div class="sidebar close">
+    <div class="sidebar close">
             <div class="logo-details">
                 <i class="bx bxl-c-plus-plus"></i>
                 <span class="logo_name">Dimoa</span>
@@ -76,15 +74,16 @@ if (!isset($_SESSION['operator'])) {
         <div class="home-content">
             <i class="bx bx-menu"></i>
         </div>
-    </section>  
+    </section>
     <div class="komentariya">
         <div class="container_komentariya">
             <div class="content_komentariya">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
                         <tr>
+                            <th>Номер заказа</th>
                             <th>Имя</th>
-                            <th>Номер или почта</th>
+                            <th>Адрес</th>
                             <th>Дата</th>
                             <th>Статус</th>
                             <th>Действие</th>
@@ -94,16 +93,17 @@ if (!isset($_SESSION['operator'])) {
             </div>
             <div class="tbl-content">
                 <?php
-                while ($koment = mysqli_fetch_assoc($result_konentariya)) {
+                while ($zakaz = mysqli_fetch_assoc($result_zakaz)) {
                 ?>
                     <table cellpadding="0" cellspacing="0" border="0">
                         <tbody>
                             <tr>
-                                <td><?= $koment['Name'] ?></td>
-                                <td><?= $koment['email'] ?></td>
-                                <td><?= $koment['Date'] ?></td>
-                                <td><?= $koment['Status'] ?></td>
-                                <td><a href="koment_prosmotr.php?id=<?= $koment['idKomentariya'] ?>">Открыть</a></td>
+                                <td><?= $zakaz['idZakaz'] ?></td>
+                                <td><?= $zakaz['Name'] ?></td>
+                                <td><?= $zakaz['Adres'] ?></td>
+                                <td><?= $zakaz['Data'] ?></td>
+                                <td><?= $zakaz['Status'] ?></td>
+                                <td><a href="zakaz_prosmotr.php?id=<?= $zakaz['idZakaz'] ?>">Открыть</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -112,7 +112,6 @@ if (!isset($_SESSION['operator'])) {
                 ?>
             </div>
         </div>
-
     </div>
     <script src="../js/swiper_menu.js"></script>
 </body>

@@ -80,28 +80,30 @@ if (!isset($_SESSION['user'])) {
             <i class="bx bx-menu"></i>
         </div>
     </section>
-<div class="update">
-    <div class="update_content">
-    <?php
-                while ($category = mysqli_fetch_assoc($result_category))
-                {
-                    ?>
-                    <div class="category">
-                        <h3><?= $category['Name_category'] ?></h3>
-                        <a href="update_category.php?id=<?= $category['idCategory'] ?>">Изменить</a>
-                        <a href="../config/delete_category.php?id=<?= $category['idCategory'] ?>">Удалить</a>
-                    </div>
-                
-                    <?php
-                }
-            ?>
+    <div class="update">
+    <div class="container_tovar">
+        <div class="update_category">
+        <?php
+                    while ($category = mysqli_fetch_assoc($result_category))
+                    {
+                        ?>
+                        <div class="category">
+                            <h3><?= $category['Name_category'] ?></h3>
+                            <a href="update_category.php?id=<?= $category['idCategory'] ?>">Изменить</a>
+                            <a href="../config/delete_category.php?id=<?= $category['idCategory'] ?>">Удалить</a>
+                        </div>
+                    
+                        <?php
+                    }
+                ?>
+        </div>
+        <button class="create_category">+</button>
     </div>
-    <button class="create_category">Добавит</button>
 </div>
 <div class="create">
     <div class="container_create">
         <h1>Добавление категории</h1>
-        <form action="config/create_category.php" method="post">
+        <form action="../config/create_category.php" method="post">
             <input type="text" name="Name" placeholder="Названия">
             <button type="submit">Добавить</button>
         </form>
@@ -109,6 +111,6 @@ if (!isset($_SESSION['user'])) {
     </div>
 </div>
 <script src="../js/swiper_menu.js"></script>
-<script src="../js/profile.js"></script>
+<script src="../js/modal.js"></script>
 </body>
 </html>

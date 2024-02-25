@@ -1,14 +1,16 @@
 <?php
 session_start();
 require_once '../config/connect.php';
-$result_konentariya = mysqli_query($connect, query: "SELECT * FROM `komentariya`  WHERE `Status` = 'Прочитано' ORDER BY `komentariya`.`Date` DESC");
-if (!isset($_SESSION['operator'])) {
-    header('Location: admin.php');
-}
+$id = $_GET['id'];
+$result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
+$zakaz = mysqli_query($connect, query:"SELECT * FROM `zakaz` WHERE `idZakaz`= '$id'");
+$zakaz = mysqli_fetch_assoc($zakaz);
+$decoded_products = json_decode($zakaz['NameProduct'], true);
+// Применяем utf8_decode() к каждому элементу массива $decoded_products
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +18,6 @@ if (!isset($_SESSION['operator'])) {
     <link rel="stylesheet" href="../css/komentariya.css">
     <title>Document</title>
 </head>
-
 <body>
 <div class="sidebar close">
             <div class="logo-details">
@@ -76,45 +77,29 @@ if (!isset($_SESSION['operator'])) {
         <div class="home-content">
             <i class="bx bx-menu"></i>
         </div>
-    </section>  
-    <div class="komentariya">
-        <div class="container_komentariya">
-            <div class="content_komentariya">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead>
-                        <tr>
-                            <th>Имя</th>
-                            <th>Номер или почта</th>
-                            <th>Дата</th>
-                            <th>Статус</th>
-                            <th>Действие</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="tbl-content">
-                <?php
-                while ($koment = mysqli_fetch_assoc($result_konentariya)) {
-                ?>
-                    <table cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td><?= $koment['Name'] ?></td>
-                                <td><?= $koment['email'] ?></td>
-                                <td><?= $koment['Date'] ?></td>
-                                <td><?= $koment['Status'] ?></td>
-                                <td><a href="koment_prosmotr.php?id=<?= $koment['idKomentariya'] ?>">Открыть</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                <?php
-                }
-                ?>
-            </div>
-        </div>
-
+    </section>
+<div class="koment">
+    <div class="koment_content">
+        <form action="../config/update_zakaz.php" method="post">
+            <input type="hidden" name="id_zakaz" value="<?= $zakaz['idZakaz']?>">
+            <h2>Имя</h2>
+            <h3><?= $zakaz['Name'] ?></h3>
+            <h2>Адрес</h2>
+            <h3><?= $zakaz['Adres'] ?></h3>
+            <h2>Телефон номер</h2>
+            <p><?= $zakaz['Phone'] ?></p>
+            <h2>Заказы</h2>
+            <?php foreach ($decoded_products as $product) { ?>
+                <h3><?= $product ?></h3>
+            <?php } ?>
+            <h2>Итого</h2>
+            <h3><?= $zakaz['Itogo'] ?></h3>
+            <button type="submit">Прочитано</button>
+        </form>
     </div>
-    <script src="../js/swiper_menu.js"></script>
-</body>
 
+</div>
+<script src="js/profile.js"></script>
+<script src="../js/swiper_menu.js"></script>
+</body>
 </html>
