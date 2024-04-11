@@ -133,7 +133,7 @@ if (!isset($_SESSION['admin'])) {
                 <form action="../config/create_aksi.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="Name" placeholder="Названия">
                     <input type="date" name="Date">
-                    <textarea name="Description" placeholder="Названия"></textarea>
+                    <textarea name="Description" placeholder="Описание"></textarea>
                     <input type="file" name="file">
                     <button type="submit">Добавить</button>
                 </form>

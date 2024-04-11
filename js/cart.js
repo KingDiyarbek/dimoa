@@ -185,11 +185,11 @@ document.addEventListener('DOMContentLoaded', function() {
         form.querySelectorAll('input[type="hidden"]').forEach(input => input.remove());
 
         // Для каждого товара в корзине добавляем скрытое поле в форму
-        for (const [productId, item] of Object.entries(cart)) {
+        for (const [productId] of Object.entries(cart)) {
             const inputName = document.createElement('input');
-            inputName.setAttribute('type', 'hidden');
-            inputName.setAttribute('name', `products[${productId}]`);
-            inputName.setAttribute('value', `${item.name}|${item.price}|${item.quantity}`);
+            inputName.setAttribute('type', 'text');
+            inputName.setAttribute('name', `idProduct[]`);
+            inputName.setAttribute('value', `${productId}`);
             form.appendChild(inputName);
         }
         const inputTotal = document.createElement('input');

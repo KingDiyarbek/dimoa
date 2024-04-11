@@ -13,7 +13,7 @@ $Phone = $_POST['phone'];
 $NameProduct = mysqli_real_escape_string($connect, $NameProduct);
 
 // Выполняем запрос к базе данных для добавления заказа
-$query = "INSERT INTO `zakaz` (`Name`, `Adres`, `Phone`, `NameProduct`, `Itogo`, `Data`, `Status`) VALUES ('$Name', '$Adres', '$Phone', '$NameProduct', '$Itogo', CURRENT_TIMESTAMP, 'Новый')";
+$query = "INSERT INTO `zakaz1` (`idZakaz`, `idProduct`, `Quality`, `Summa`, `Itogo`, `Name`, `Adres`, `Phone`, `Komentariya`) VALUES (NULL, '21', 'в', 'в', 'в', 'в', 'в', 'в', 'в')";
 
 // Выполняем запрос
 $result = mysqli_query($connect, $query);

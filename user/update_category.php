@@ -91,6 +91,8 @@ $category = mysqli_fetch_assoc($category);
             <input type="hidden" name="id_category" value="<?= $category['idCategory']?>">
             <label for="Name">Название</label>
             <input type="text" name="Name" value="<?= $category['Name_category']?>">
+            <input type="file" name="file" value="<?= $category['Image']?>">
+            <img src="<?= $category['Image']?>" alt="">
             <button class="button_update"><span>Изменить</span></button>
         </form>
     </div>

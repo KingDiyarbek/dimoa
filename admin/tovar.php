@@ -124,7 +124,7 @@ if (!isset($_SESSION['admin'])) {
                 <input type="hidden" name="id_category" value="<?= $id_tovar ?>">
                 <input type="text" name="Name" placeholder="Названия">
                 <input type="text" name="Price" placeholder="Цена">
-                <textarea  name="Description" placeholder="Названия"></textarea>
+                <textarea  name="Description" placeholder="Описание"></textarea>
                 
                 <input type="file" name="file">
                 <button type="submit">Добавить</button>

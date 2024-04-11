@@ -103,8 +103,9 @@ if (!isset($_SESSION['user'])) {
 <div class="create">
     <div class="container_create">
         <h1>Добавление категории</h1>
-        <form action="../config/create_category.php" method="post">
+        <form action="../config/create_category.php" method="post" enctype="multipart/form-data">
             <input type="text" name="Name" placeholder="Названия">
+            <input type="file" name="file" placeholder="Изображения категории">
             <button type="submit">Добавить</button>
         </form>
         <button class="modal__close">&#10006;</button>

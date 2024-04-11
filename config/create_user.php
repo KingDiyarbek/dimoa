@@ -1,5 +1,4 @@
 <?php
-var_dump($_FILES);
 $uploaddir = '../image/sotrudnik/';
 $file = $uploaddir.$_FILES['file']['name'];
 session_start();
